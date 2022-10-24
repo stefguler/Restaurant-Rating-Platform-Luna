@@ -2,7 +2,7 @@ version: '3'
 
 services:
   backend:
-    image:
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-21-aug-2022/luna-project/team-1:latest
     ports:
       - 8001:8000
     volumes:
