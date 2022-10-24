@@ -1,9 +1,13 @@
 # Pull miniconda from docker hub as base image
 FROM continuumio/miniconda3
+ENV LANG=CUTF-8 LC-ALL=C:UTF-8
 
 # Create folder
 RUN mkdir -p /backend
 RUN mkdir -p /scripts
+RUN mkdir -p /static-files
+RUN mkdir -p /media-files
+
 
 #pass all the files and folders from local folder to image
 COPY ./backend /backend
