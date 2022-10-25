@@ -1,0 +1,19 @@
+/* Small Reset */
+*::before, *::after, * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  font-style: normal;
+}
+
+.App {
+  text-align: center;
+}
+
+#root {
+  min-width: 100vw;
+  background-color: #F8F8F9;
+  font-family: Helvetica;
+}
+
