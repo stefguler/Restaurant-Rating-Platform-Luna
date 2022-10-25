@@ -3,7 +3,11 @@ import styled from "styled-components";
 export const FooterMainContainerDiv = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 `;
 
 export const FooterUpperContainerDive = styled.div`

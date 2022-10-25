@@ -11,6 +11,8 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: Helvetica;
+    width:100vw;
+    height: 100hw;
     
 }
 
@@ -61,6 +63,11 @@ export const HeaderHSPButtons = styled.button`
   /* border: 1px solid white; */
   background-color: white;
   border: none;
+`;
+export const HeaderHSPButtonsHover = styled.button`
+  /* border: 1px solid white; */
+  background-color: white;
+  border: none;
 
   &::after {
     display: block;
@@ -72,8 +79,14 @@ export const HeaderHSPButtons = styled.button`
     content: "";
     background-color: #e47d31;
   }
+  &:nth-child(1)::after {
+    margin-left: 5px;
+  }
   &:nth-child(2)::after {
-    margin-left: 7px;
+    margin-left: 8px;
+  }
+  &:nth-child(3)::after {
+    margin-left: 5px;
   }
 `;
 
@@ -83,11 +96,11 @@ export const HeaderSignLoginDiv = styled.div`
   margin-left: 30px;
 `;
 
-export const HeaderHSPSignButton = styled.button`
+export const HeaderSigninButton = styled.button`
   color: white;
   background-color: #e47d31;
   border: none;
-  /* border-bottom-right-radius: 20px; */
+  margin-left: 20px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   width: 100px;
@@ -95,7 +108,19 @@ export const HeaderHSPSignButton = styled.button`
   margin: 0.5px;
 `;
 
-export const HeaderHSPLoginButton = styled.button`
+export const HeaderSignButtonHover = styled.button`
+  color: black;
+  background-color: white;
+  border: 1px solid #e47d31;
+  margin-left: 20px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  width: 100px;
+  height: 30px;
+  margin: 0.5px;
+`;
+
+export const HeaderLoginButton = styled.button`
   color: white;
   background-color: #e47d31;
   border: none;
@@ -103,4 +128,15 @@ export const HeaderHSPLoginButton = styled.button`
   border-bottom-right-radius: 15px;
   border-top-right-radius: 15px;
   margin: 0.5px;
+`;
+
+export const HeaderLoginButtonHover = styled.button`
+  color: black;
+  background-color: white;
+  border: 1px solid #e47d31;
+  width: 100px;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  margin: 0.5px;
+  transition: 5s;
 `;
