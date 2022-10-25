@@ -3,14 +3,12 @@ import { ListContainer, RestaurantListFilter } from '../RestaurantOverviewSectio
 
 export default function ListFilterContainer(props) {
 
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
   const handleClick = () => {
-    setIsActive(current => !current);
-
-    console.log(isActive)
-    console.log(props.name)
+    
     props.onClick(props.name)
+   
     
   };
 
@@ -19,7 +17,7 @@ export default function ListFilterContainer(props) {
       {/* everything else */}
       <ListContainer className='active'
         style={{
-          borderColor: isActive && props.activeFilter === props.name ? '#E47D31' : '#D8D8D8',
+          borderColor: props.activeFilter === props.name ? '#E47D31' : '#D8D8D8', //
         }}
         onClick={handleClick}>
         <RestaurantListFilter>{props.name}</RestaurantListFilter>
