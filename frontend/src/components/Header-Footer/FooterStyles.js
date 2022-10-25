@@ -4,10 +4,15 @@ export const FooterMainContainerDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
-  position: relative;
+  position: fixed;
   bottom: 0px;
-  left: 0px;
-  right: 0px;
+  /* left: 0; */
+  /* right: 0; */
+  background-color: white;
+  flex: 1;
+  z-index: 1000
+
+  background-color: red;
 `;
 
 export const FooterUpperContainerDive = styled.div`
@@ -20,7 +25,7 @@ export const FooterUpperContainerDive = styled.div`
 `;
 export const FooterUpperLeftSideDiv = styled.div`
   display: flex;
-  width: 60%;
+  width: 40%;
   margin: 3px;
   position: relative;
   right: 0px;
@@ -38,7 +43,7 @@ export const FooterUpperRightSideDiv = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  width: 40%;
+  width: 60%;
 
   img {
     object-fit: contain;

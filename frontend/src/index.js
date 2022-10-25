@@ -8,7 +8,7 @@ import store from "./redux/Store";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomepageSection from "./components/HomepageSection/HomepageSection";
 import RestaurantsOverviewSection from "./components/RestaurantsOverviewSection";
-import { GlobalStyle } from "./components/Header-Footer/HeaderStyles";
+import { GlobalStyle } from "./styles/GlobalStyles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

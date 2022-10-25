@@ -1,16 +1,24 @@
-import CategoryDropdown from './CategoryDropdown/CategoryDropdown.js'
-import ListFilterContainer from './ListFilterContainer/ListFilterContainer.js'
-import {useState} from 'react'
-import { RestaurantOverviewContainer, SearchBarContainer, SearchInput, RestaurantListFilterContainer, ListContainer, RestaurantListFilter, Underline } from './RestaurantOverviewSection.styled'
-
+import CategoryDropdown from "./CategoryDropdown/CategoryDropdown.js";
+import ListFilterContainer from "./ListFilterContainer/ListFilterContainer.js";
+import { useState } from "react";
+import {
+  RestaurantOverviewContainer,
+  SearchBarContainer,
+  SearchInput,
+  RestaurantListFilterContainer,
+  ListContainer,
+  RestaurantListFilter,
+  Underline,
+} from "./RestaurantOverviewSection.styled";
+import Header from "../Header-Footer/Header.js";
+import Footer from "../Header-Footer/Footer";
 
 export default function RestaurantOverview() {
+  //const [users, setUsers] = useState([])
+  //const token = useSelector(state => state.auth.accessToken)
+  const [activeFilter, setActiveFilter] = useState("Restaurant");
 
-    //const [users, setUsers] = useState([])
-    //const token = useSelector(state => state.auth.accessToken)
-    const [activeFilter, setActiveFilter] = useState('Restaurant');
-
-    /*FETCH RESTAURANTS INIT
+  /*FETCH RESTAURANTS INIT
 
    //useEffect(() => {
 
@@ -36,24 +44,42 @@ export default function RestaurantOverview() {
 
    }, [token]); */
 
-   const handleActivateFilter = (e) => {
-    setActiveFilter(e)
-    console.log(activeFilter)
-   }
+  const handleActivateFilter = e => {
+    setActiveFilter(e);
+    console.log(activeFilter);
+  };
 
-    return (
-        <>
-            <RestaurantOverviewContainer>
-                <SearchBarContainer>
-                    <SearchInput placeholder="Search"></SearchInput>
-                    <CategoryDropdown />
-                </SearchBarContainer>
-                <RestaurantListFilterContainer>
-                    <ListFilterContainer name={'Restaurants'} className='active' activeFilter={activeFilter} isInit={true} onClick={handleActivateFilter} />
-                    <ListFilterContainer name={'Reviews'} activeFilter={activeFilter} isInit={false} onClick={handleActivateFilter}/>
-                    <ListFilterContainer name={'Users'} activeFilter={activeFilter} isInit={false} onClick={handleActivateFilter}/>
-                </RestaurantListFilterContainer>
-            </RestaurantOverviewContainer>
-        </>
-    )
+  return (
+    <>
+      <Header />
+      <RestaurantOverviewContainer>
+        <SearchBarContainer>
+          <SearchInput placeholder="Search"></SearchInput>
+          <CategoryDropdown />
+        </SearchBarContainer>
+        <RestaurantListFilterContainer>
+          <ListFilterContainer
+            name={"Restaurants"}
+            className="active"
+            activeFilter={activeFilter}
+            isInit={true}
+            onClick={handleActivateFilter}
+          />
+          <ListFilterContainer
+            name={"Reviews"}
+            activeFilter={activeFilter}
+            isInit={false}
+            onClick={handleActivateFilter}
+          />
+          <ListFilterContainer
+            name={"Users"}
+            activeFilter={activeFilter}
+            isInit={false}
+            onClick={handleActivateFilter}
+          />
+        </RestaurantListFilterContainer>
+      </RestaurantOverviewContainer>
+      <Footer />
+    </>
+  );
 }

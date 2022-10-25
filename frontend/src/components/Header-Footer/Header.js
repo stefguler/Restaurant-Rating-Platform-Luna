@@ -10,8 +10,8 @@ import {
   HeaderHSPButtons,
   HeaderHSPButtonsHover,
   HeaderSigninButton,
-  HeaderLoginButton,
   HeaderSignButtonHover,
+  HeaderLoginButton,
   HeaderLoginButtonHover,
 } from "./HeaderStyles";
 
@@ -31,11 +31,11 @@ function Header() {
   const [loginButtonState, setLoginButtonState] = useState(false);
   const [signupButtonState, setsignupButtonState] = useState(false);
 
-  // Change Bold Text depending on which page we are
-  const [boldText, setBoldText] = useState(false);
-  const handleBoldText = () => {
-    setBoldText(currnet => !currnet);
-  };
+  // // Change Bold Text depending on which page we are
+  // const [boldText, setBoldText] = useState(false);
+  // const handleBoldText = () => {
+  //   setBoldText(currnet => !currnet);
+  // };
 
   return (
     <HeaderMainContainerDiv>
@@ -45,12 +45,18 @@ function Header() {
         </button>
       </HeaderLunaParagraphContainerDiv>
       <HeaderHSPContainerDiv>
-        {hoverHomeButtonState === true ? (
+        {hoverHomeButtonState === true || location.pathname === "/Home" ? (
           <HeaderHSPButtonsHover
             // style={{
-            //   fontWeight: boldText ? "bold" : "bold",
+            //   fontWeight: boldText ? "bold" : "normal",
             // }}
-            onClick={() => navigate("/Home")}
+            // onClick={() => {
+            //   setHoverHomeButtonState(true);
+            // }}
+            onClick={() => {
+              navigate("/Home");
+              setHoverHomeButtonState(true);
+            }}
             // onClick={handleBoldText}
             onMouseEnter={() => {
               setHoverHomeButtonState(true);
@@ -74,9 +80,20 @@ function Header() {
           </HeaderHSPButtons>
         )}
 
-        {hoverSearchButtonState === true ? (
+        {hoverSearchButtonState === true ||
+        location.pathname === "/restaurants" ? (
           <HeaderHSPButtonsHover
-            onClick={() => navigate("/Search")}
+            // style={{
+            //   fontWeight: boldText ? "bold" : "normal",
+            // }}
+            // onClick={() => {
+            //   setHoverSearchButtonState(true);
+            // }}
+            onClick={() => {
+              navigate("/restaurants");
+              setHoverSearchButtonState(true);
+            }}
+            // onClick={handleBoldText}
             onMouseEnter={() => {
               setHoverSearchButtonState(true);
             }}
@@ -99,9 +116,20 @@ function Header() {
           </HeaderHSPButtons>
         )}
 
-        {hoverProfileButtonState === true ? (
+        {hoverProfileButtonState === true ||
+        location.pathname === "/Profile" ? (
           <HeaderHSPButtonsHover
-            onClick={() => navigate("/Profile")}
+            // style={{
+            //   fontWeight: boldText ? "bold" : "normal",
+            // }}
+            // onClick={() => {
+            //   setHoverProfileButtonState(true);
+            // }}
+            onClick={() => {
+              navigate("/Profile");
+              setHoverProfileButtonState(true);
+            }}
+            // onClick={handleBoldText}
             onMouseEnter={() => {
               setHoverProfileButtonState(true);
             }}
@@ -123,10 +151,15 @@ function Header() {
             Profile
           </HeaderHSPButtons>
         )}
+
         <HeaderSignLoginDiv>
-          {signupButtonState == true ? (
+          {signupButtonState === true || location.pathname === "/Signup" ? (
             <HeaderSignButtonHover
-              onClick={() => navigate("/Signup")}
+              onClick={() => {
+                navigate("/Signup");
+                setsignupButtonState(true);
+              }}
+              // onClick={handleBoldText}
               onMouseEnter={() => {
                 setsignupButtonState(true);
               }}
@@ -149,9 +182,12 @@ function Header() {
             </HeaderSigninButton>
           )}
 
-          {loginButtonState == true ? (
+          {loginButtonState === true || location.pathname === "/Login" ? (
             <HeaderLoginButtonHover
-              onClick={() => navigate("/Signin")}
+              onClick={() => {
+                navigate("/Login");
+                setHoverHomeButtonState(true);
+              }}
               onMouseEnter={() => {
                 setLoginButtonState(true);
               }}

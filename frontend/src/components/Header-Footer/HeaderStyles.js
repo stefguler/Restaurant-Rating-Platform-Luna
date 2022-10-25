@@ -1,42 +1,13 @@
 import styled from "styled-components";
 
-// ------------------- GLOBAL STYLES ------------------
-
-import { createGlobalStyle } from "styled-components";
-
-export const GlobalStyle = createGlobalStyle`
-body {
-    display:flex;
-    flex-direction: column;
-    margin: 0px;
-    padding: 0px;
-    font-family: Helvetica;
-    width:100vw;
-    height: 100hw;
-    
-}
-
-button:hover {
-    cursor: pointer;
-}
-
-a {
-    text-decoration: none;
-}
-
-`;
-
-// ------------------- GLOBAL STYLES ------------------
-
 export const HeaderMainContainerDiv = styled.div`
   display: flex;
   width: 100vw;
   height: 40px;
-  background-color: white;
-
   justify-content: space-between;
+  background-color: white;
   align-items: center;
-  /* background-color: red; */
+  /* z-index: 1000; */
 `;
 
 export const HeaderLunaParagraphContainerDiv = styled.div`
@@ -55,8 +26,8 @@ export const HeaderLunaParagraphContainerDiv = styled.div`
 export const HeaderHSPContainerDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 450px;
-  /* margin-right: 20px; */
+  width: 480px;
+  margin-left: 20px;
 `;
 
 export const HeaderHSPButtons = styled.button`
@@ -92,8 +63,9 @@ export const HeaderHSPButtonsHover = styled.button`
 
 export const HeaderSignLoginDiv = styled.div`
   display: flex;
-  width: 200px;
+  /* width: 200px; */
   margin-left: 30px;
+  margin-right: 20px;
 `;
 
 export const HeaderSigninButton = styled.button`
