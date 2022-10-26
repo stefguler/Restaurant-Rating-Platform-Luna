@@ -1,6 +1,6 @@
 import { RestaurantCardContainer, CardHeader, RestaurantTitle, RestaurantAdress, RestaurantRatingContainer, RestaurantRating, RestaurantRatingCount, RestaurantAvatar } from './RestaurantCard.styled'
 import StarsRating from 'stars-rating'
-import { findByLabelText } from '@testing-library/react';
+
 
 export default function RestaurantCard(props) {
 

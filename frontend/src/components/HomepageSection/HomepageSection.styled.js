@@ -10,7 +10,7 @@ export const HomepageContainer = styled.div`
 `
 
 export const HomepageBanner = styled.img`
- min-width: 100vw;
+ min-width: 100%;
 `
 
 export const InputContainer = styled.div`
@@ -65,7 +65,7 @@ export const Separator = styled.div`
     margin: 0.5rem 0 3rem ;
     `
 
-export const RestaurantCardGrid = styled.div`
+export const RestaurantCardsGrid = styled.div`
     display: grid;
     align-items: center;
     justify-content: center;

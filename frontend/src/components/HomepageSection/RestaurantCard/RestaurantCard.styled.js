@@ -9,6 +9,8 @@ border-radius: 0.5rem;
 flex-direction: column;
 align-items: center;
 gap:  1rem;
+width: 271px;
+cursor: pointer;
 `;
 
 export const CardHeader = styled.div`
