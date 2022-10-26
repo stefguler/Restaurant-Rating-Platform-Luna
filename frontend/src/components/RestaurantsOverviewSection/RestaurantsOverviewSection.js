@@ -1,19 +1,15 @@
 import CategoryDropdown from "./CategoryDropdown/CategoryDropdown.js";
 // import { RestaurantCardGrid } from '../HomepageSection/HomepageSection.styled.js'
-import RestaurantCardGrid from "../HomepageSection/RestaurantCardGrid/RestaurantCardGrid.js";
-import ReviewCardGrid from "./ReviewCardGrid/ReviewCardGrid.js";
-import ListFilterContainer from "./ListFilterContainer/ListFilterContainer.js";
-import { useState } from "react";
-import {
-  RestaurantOverviewContainer,
-  SearchBarContainer,
-  SearchInput,
-  RestaurantListFilterContainer,
-} from "./RestaurantOverviewSection.styled";
-import ReviewCard from "./ReviewCard/ReviewCard.js";
-import UserCardGrid from "./UserCardGrid/UserCardGrid.js";
-import Header from "../Header-Footer/Header";
-import Footer from "../Header-Footer/Footer";
+import RestaurantCardGrid from '../HomepageSection/RestaurantCardGrid/RestaurantCardGrid.js'
+import ReviewCardGrid from './ReviewCardGrid/ReviewCardGrid.js'
+import ListFilterContainer from './ListFilterContainer/ListFilterContainer.js'
+import { useState } from 'react'
+import { RestaurantOverviewContainer, SearchBarContainer, SearchInput, RestaurantListFilterContainer } from './RestaurantOverviewSection.styled'
+import ReviewCard from './ReviewCard/ReviewCard.js'
+import UserCardGrid from './UserCardGrid/UserCardGrid.js'
+import Header from '../Header-Footer/Header.js'
+import Footer from '../Header-Footer/Footer.js'
+
 
 export default function RestaurantOverview() {
   //const [restaurants, setRestaurants] = useState([])
@@ -294,40 +290,31 @@ export default function RestaurantOverview() {
     console.log("new filter", activeFilter);
   };
 
-  return (
-    <>
-      <Header />
-      <RestaurantOverviewContainer>
-        <SearchBarContainer>
-          <SearchInput placeholder="Search"></SearchInput>
-          <CategoryDropdown />
-        </SearchBarContainer>
-        <RestaurantListFilterContainer>
-          <ListFilterContainer
-            name={"Restaurants"}
-            activeFilter={activeFilter}
-            onClick={handleActivateFilter}
-          />
-          <ListFilterContainer
-            name={"Reviews"}
-            activeFilter={activeFilter}
-            onClick={handleActivateFilter}
-          />
-          <ListFilterContainer
-            name={"Users"}
-            activeFilter={activeFilter}
-            onClick={handleActivateFilter}
-          />
-        </RestaurantListFilterContainer>
-        {activeFilter === "Restaurants" ? (
-          <RestaurantCardGrid data={restaurantlist} />
-        ) : null}
-        {activeFilter === "Reviews" ? (
-          <ReviewCardGrid data={reviewlist} />
-        ) : null}
-        {activeFilter === "Users" ? <UserCardGrid data={userlist} /> : null}
-      </RestaurantOverviewContainer>
-      <Footer />
-    </>
-  );
+    return (
+        <>  
+            <Header></Header>
+            <RestaurantOverviewContainer>
+                <SearchBarContainer>
+                    <SearchInput placeholder="Search"></SearchInput>
+                    <CategoryDropdown />
+                </SearchBarContainer>
+                <RestaurantListFilterContainer>
+                    <ListFilterContainer name={'Restaurants'} activeFilter={activeFilter} onClick={handleActivateFilter} />
+                    <ListFilterContainer name={'Reviews'} activeFilter={activeFilter} onClick={handleActivateFilter} />
+                    <ListFilterContainer name={'Users'} activeFilter={activeFilter} onClick={handleActivateFilter} />
+                </RestaurantListFilterContainer>
+                {
+                    activeFilter === 'Restaurants' ? <RestaurantCardGrid data={restaurantlist} /> : null
+                }
+                {
+                    activeFilter === 'Reviews' ? <ReviewCardGrid data={reviewlist} /> : null
+                }
+                {
+                    activeFilter === 'Users' ? <UserCardGrid data={userlist} /> : null
+                }
+
+            </RestaurantOverviewContainer>
+            <Footer></Footer>
+        </>
+    )
 }

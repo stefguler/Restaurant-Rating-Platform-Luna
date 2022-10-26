@@ -9,50 +9,60 @@ export const HomepageContainer = styled.div`
  background-color: #F2F2F2;
 `
 
+export const SearchBannerContainer = styled.div`
+    display: flex;
+    min-width: 100%;
+    margin-bottom: 22rem;
+`
+
 export const HomepageBanner = styled.img`
- min-width: 100%;
+    min-width: 100%;
+    height: 351px;
+    position: fixed;
+    z-index: 998;
 `
 
 export const InputContainer = styled.div`
- display: flex;
- position: absolute;
- width: 100vh;
- gap: 1rem;
- top: 20%;
- left: 25%; 
+    width: 50%;
+    display: flex;
+    gap: 1rem;
+    top: 15%;
+    left: 25%;
+    position: fixed;
+    z-index: 998;
 `
 
 export const SearchInput = styled.input`
- width: 60%;
- border-radius: 0.3rem;
- border: none;
- font-size: 20px;
- color: #4C4C4C;
- line-height: 20px;
- padding-left: 1rem;
+    width: 60%;
+    border-radius: 0.3rem;
+    border: none;
+    font-size: 20px;
+    color: #4C4C4C;
+    line-height: 20px;
+    padding-left: 1rem;
 `
 
 export const Button = styled.button`
- background: #E47D31;
- border-radius: 2rem;
- width: 200px;
- height: 58px;
- border: none;
- color: white;
- font-weight: 400px;
- font-size: 20px;
- line-height: 23px;
+    background: #E47D31;
+    border-radius: 2rem;
+    width: 200px;
+    height: 58px;
+    border: none;
+    color: white;
+    font-weight: 400px;
+    font-size: 20px;
+    line-height: 23px;
  cursor: pointer;
 
  :hover {
       background: white;
       color: black;
+      border: 2px solid #E47D31;
     }
 `
 
 export const PageTitle = styled.h1`
     text-transform: uppercase;
-    /* background: white; */
     color: #4C4C4C;
     margin-top: 3rem;
     font-size: 24px;
@@ -67,9 +77,9 @@ export const Separator = styled.div`
 
 export const RestaurantCardsGrid = styled.div`
     display: grid;
+    min-width: 80%;
     align-items: center;
-    justify-content: center;
-    width: 80vw;
+    /* justify-content: center; */
     grid-template-columns: repeat(4, 1fr);
     font-weight: 400;
     gap: 1rem 1rem;
