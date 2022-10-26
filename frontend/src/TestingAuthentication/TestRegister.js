@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header-Footer/Header";
 
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 export const TestRegister = () => {
   const [firstName, setFirstName] = useState("");
@@ -16,20 +16,33 @@ export const TestRegister = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const data = {
+    first_name: firstName,
+    last_name: lastName,
+    email: email,
+    password: password,
+    password_confirm: passwordConfirm,
+  };
+
   const submit = async e => {
     e.preventDefault();
+    try {
+      // await axios.post("http://localhost:8000/api/register", data: {
+      let response = await axios.post(
+        "http://localhost:3000/TestFetching",
+        data.first_name
+      );
+      return response;
+    } catch (err) {
+      console.log("error: ", err);
+    }
 
-    const data = {
-      first_name: firstName,
-      last_name: lastName,
-      email: email,
-      password: password,
-      password_confirm: passwordConfirm,
-    };
-    // await axios.post("http://localhost:8000/api/register", data: {
-    await axios.post("http://localhost:3000/TestFetching", data);
     setRedirectToLogin(true);
   };
+
+  if (redirectToLogin) {
+    return Navigate("/testLogin");
+  }
 
   return (
     <>

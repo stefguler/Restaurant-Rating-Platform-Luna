@@ -6,7 +6,7 @@ const TestFetching = () => {
     last_name: "Fuochetto",
     email: "gio@example.com",
     password: "encrypted",
-    passwordConfirm: "encrypted1",
+    passwordConfirm: "encrypted",
   };
 
   console.log(data);
