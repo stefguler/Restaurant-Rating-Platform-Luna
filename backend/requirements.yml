@@ -1,11 +1,8 @@
-name: luna_project
-dependencies :
+name: luna-team-1
+dependencies:
   - python=3.10.4
-  - pip=22.2.2
-  - psycopg2
   - pip:
       - django==4.1.1
       - djangorestframework==3.14.0
-      - djangorestframework_simplejwt==5.2.1
-      - flake8==5.0.4
-      - gunicorn
+      - djangorestframework-simplejwt==5.2.2
+      - Pillow==9.2.0
