@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-wuk#$*w8oq(ky01l=_pfvo#-z@dmi_q)em8yn-=vprkx6n8^%^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://team1.propulsion-learn.ch/', '46.101.187.151', 'backend', 'localhost']
 
 # Application definition
 
