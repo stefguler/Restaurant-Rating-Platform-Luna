@@ -6,34 +6,40 @@ export const HomepageContainer = styled.div`
  display: flex;
  flex-direction: column;
  align-items: center;
- background-color: #F2F2F2;
+ background-color: #F8F8F9;
+ padding: 4.5rem 0 ;
 `
 
-export const SearchBannerContainer = styled.div`
-    display: flex;
-    min-width: 100%;
-    margin-bottom: 22rem;
-`
+// export const SearchBannerContainer = styled.div`
+//     display: flex;
+//     min-width: 100%;
+//     margin-bottom: 22rem;
+// `
 
 export const HomepageBanner = styled.img`
     min-width: 100%;
     height: 351px;
     position: fixed;
     z-index: 998;
+    margin-bottom: 22rem;
+
 `
 
 export const InputContainer = styled.div`
-    width: 50%;
+    width: 100%;
+    height: 351px;
     display: flex;
     gap: 1rem;
-    top: 15%;
-    left: 25%;
+    left: 20%;
     position: fixed;
+    align-items: center;
     z-index: 998;
+    
 `
 
 export const SearchInput = styled.input`
     width: 60%;
+    height: 58px;
     border-radius: 0.3rem;
     border: none;
     font-size: 20px;
@@ -66,6 +72,7 @@ export const PageTitle = styled.h1`
     color: #4C4C4C;
     margin-top: 3rem;
     font-size: 24px;
+    margin-top: 25rem;
 `
 
 export const Separator = styled.div`
@@ -77,8 +84,8 @@ export const Separator = styled.div`
 
 export const RestaurantCardsGrid = styled.div`
     display: grid;
-    min-width: 80%;
     align-items: center;
+    width: 60%;
     /* justify-content: center; */
     grid-template-columns: repeat(4, 1fr);
     font-weight: 400;

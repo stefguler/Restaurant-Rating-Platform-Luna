@@ -81,11 +81,11 @@ export default function Homepage() {
 
   return (
     <>
+    <Header></Header>
       <HomepageContainer>
-        <Header></Header>
-        <SearchBannerContainer>
+        {/* <SearchBannerContainer> */}
           <HomepageBanner src='luna_banner.png' alt='luna banner'></HomepageBanner>
-        </SearchBannerContainer>
+        {/* </SearchBannerContainer> */}
         <InputContainer>
           <SearchInput type='text' placeholder='Search...'></SearchInput>
           <Button>Search </Button>
@@ -93,8 +93,8 @@ export default function Homepage() {
         <PageTitle> Best rated restaurants</PageTitle>
         <Separator></Separator>
         <RestaurantCardGrid data={restaurantlist} />
-        <Footer></Footer>
       </HomepageContainer>
+      <Footer></Footer>
     </>
   )
 }

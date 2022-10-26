@@ -18,6 +18,7 @@ import ValidationView from "./components/LoginSection/ValidationView";
 import RegistrationMessageView from "./components/LoginSection/RegistrationMessageView";
 import RegistrationView from "./components/LoginSection/RegistrationView";
 
+import CreateReviewSection from "./components/CreateReviewSection";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -28,7 +29,8 @@ root.render(
         <Route path="/" element={<HomepageSection />} />
         <Route path="/home" element={<HomepageSection />} />
         <Route path="/restaurants" element={<RestaurantsOverviewSection />} />
-        <Route path="/login" element={<LoginView />} />
+        <Route path="/createreview" element={<CreateReviewSection />} />
+        <Route path="/login" element={<login />} />
         <Route path="/validation" element={<ValidationView />} />
         <Route path="/registrationMessage" element={<RegistrationMessageView />} />
         <Route path="/registration" element={<RegistrationView />} />
