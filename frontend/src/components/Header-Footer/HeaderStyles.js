@@ -8,6 +8,7 @@ export const HeaderMainContainerDiv = styled.div`
   background-color: white;
   align-items: center;
   /* z-index: 1000; */
+  border-bottom: 2px solid #D8D8D8; 
 `;
 
 export const HeaderLunaParagraphContainerDiv = styled.div`

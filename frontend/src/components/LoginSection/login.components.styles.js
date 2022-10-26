@@ -10,8 +10,17 @@ text-align: center;
 text-transform: uppercase;
 color: #4C4C4C;
 padding-bottom: 16px;
-border-bottom: 2px solid #E47D31;
 margin-bottom: 77px;
+&::after {
+  content: "  ";
+  display: block;
+  position: absolute;
+  background: #E47D31;
+  height: 2px;
+  width: 100px;
+  left: calc(50% - 50px);
+  top: 140px;
+}
 `;
 
 export const FormButton = styled.button`
