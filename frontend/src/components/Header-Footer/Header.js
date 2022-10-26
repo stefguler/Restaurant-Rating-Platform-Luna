@@ -156,7 +156,7 @@ function Header() {
           {signupButtonState === true || location.pathname === "/Signup" ? (
             <HeaderSignButtonHover
               onClick={() => {
-                navigate("/Signup");
+                navigate("/testRegister");
                 setsignupButtonState(true);
               }}
               // onClick={handleBoldText}
@@ -185,7 +185,7 @@ function Header() {
           {loginButtonState === true || location.pathname === "/Login" ? (
             <HeaderLoginButtonHover
               onClick={() => {
-                navigate("/Login");
+                navigate("/testLogin");
                 setHoverHomeButtonState(true);
               }}
               onMouseEnter={() => {
