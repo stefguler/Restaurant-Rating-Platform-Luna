@@ -83,7 +83,7 @@ export default function Homepage() {
                 </InputContainer>
                 <PageTitle> Best rated restaurants</PageTitle>
                 <Separator></Separator>
-                <RestaurantCardGrid data={restaurantlist} />
+                <RestaurantCardGrid data={restaurantlist}/>
             </HomepageContainer>
         </>
     )
