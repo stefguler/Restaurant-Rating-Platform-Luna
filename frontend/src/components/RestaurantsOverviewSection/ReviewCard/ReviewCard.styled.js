@@ -10,6 +10,8 @@ flex-direction: column;
 align-items: center;
 height: 410px;
 width: 271px;
+margin: 0 auto;
+cursor: pointer;
 `;
 
 export const CardHeader = styled.div`

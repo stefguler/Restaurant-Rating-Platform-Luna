@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const RestaurantOverviewContainer = styled.div`
     width: 100%;
+    padding-top: 4.45rem;
 `;
 
 export const SearchBarContainer = styled.div`

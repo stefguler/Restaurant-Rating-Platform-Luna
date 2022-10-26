@@ -10,6 +10,7 @@ flex-direction: column;
 align-items: center;
 gap:  1rem;
 width: 271px;
+margin: 0 auto;
 cursor: pointer;
 `;
 

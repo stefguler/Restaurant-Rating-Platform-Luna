@@ -7,6 +7,8 @@ import { useState } from 'react'
 import { RestaurantOverviewContainer, SearchBarContainer, SearchInput, RestaurantListFilterContainer } from './RestaurantOverviewSection.styled'
 import ReviewCard from './ReviewCard/ReviewCard.js'
 import UserCardGrid from './UserCardGrid/UserCardGrid.js'
+import Header from '../Header-Footer/Header.js'
+import Footer from '../Header-Footer/Footer.js'
 
 
 export default function RestaurantOverview() {
@@ -238,7 +240,8 @@ export default function RestaurantOverview() {
     }
 
     return (
-        <>
+        <>  
+            <Header></Header>
             <RestaurantOverviewContainer>
                 <SearchBarContainer>
                     <SearchInput placeholder="Search"></SearchInput>
@@ -260,6 +263,7 @@ export default function RestaurantOverview() {
                 }
 
             </RestaurantOverviewContainer>
+            <Footer></Footer>
         </>
     )
 }
