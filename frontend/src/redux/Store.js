@@ -1,11 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-import authReducer from "./slices/Auth"
-import profileReducer from './slices/Profile'
+import authReducer, { authSlice } from "./slices/Auth";
+import profileReducer from "./slices/Profile";
+
+const initialState = {
+  value: false,
+};
 
 export default configureStore({
-    reducer: {
-        auth: authReducer,
-        profile: profileReducer,
-    }
-});
+reducer: {
+auth:authReducer,
+profile: profileReducer}
+})

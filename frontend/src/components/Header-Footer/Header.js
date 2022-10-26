@@ -16,6 +16,7 @@ import {
 } from "./HeaderStyles";
 
 import lunaIMG from "../images/luna_font.png";
+import { useSelector } from "react-redux";
 
 function Header() {
   // Navigate trough URL
@@ -37,6 +38,18 @@ function Header() {
   //   setBoldText(currnet => !currnet);
   // };
 
+  // const Nav = () => {
+  //   const auth = useSelector(state => state.auth.value);
+  // };
+
+  // const logout = async () => {
+  //   await axios.post("logout");
+  // };
+  // let links;
+  // if (auth) {
+  //   // links = HTML HERE
+  //   // onClick={logout}
+  // }
   return (
     <HeaderMainContainerDiv>
       <HeaderLunaParagraphContainerDiv>
@@ -156,7 +169,7 @@ function Header() {
           {signupButtonState === true || location.pathname === "/Signup" ? (
             <HeaderSignButtonHover
               onClick={() => {
-                navigate("/Signup");
+                navigate("/testRegister");
                 setsignupButtonState(true);
               }}
               // onClick={handleBoldText}
@@ -185,7 +198,7 @@ function Header() {
           {loginButtonState === true || location.pathname === "/Login" ? (
             <HeaderLoginButtonHover
               onClick={() => {
-                navigate("/Login");
+                navigate("/testLogin");
                 setHoverHomeButtonState(true);
               }}
               onMouseEnter={() => {
