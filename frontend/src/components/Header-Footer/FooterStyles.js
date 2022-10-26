@@ -6,13 +6,11 @@ export const FooterMainContainerDiv = styled.div`
   width: 100vw;
   position: fixed;
   bottom: 0px;
-  /* left: 0; */
-  /* right: 0; */
   background-color: white;
   flex: 1;
-  z-index: 1000
-
-  background-color: red;
+  z-index: 1000;
+  margin-top: 300rem;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 20px 40px rgba(0, 0, 0, 0.15);
 `;
 
 export const FooterUpperContainerDive = styled.div`
@@ -31,17 +29,20 @@ export const FooterUpperLeftSideDiv = styled.div`
   right: 0px;
   justify-content: space-between;
 
+
   a,
   p {
     text-decoration: none;
     color: black;
     margin-left: 10px;
+    color: #646363;
   }
 `;
 
 export const FooterUpperRightSideDiv = styled.div`
   display: flex;
   justify-content: flex-end;
+
 
   width: 60%;
 
@@ -58,12 +59,15 @@ export const FooterDownDiv = styled.div`
 
 export const FooterDownLeftSideDiv = styled.div`
   display: flex;
+  align-items: center;
   width: 100%;
+  color: #646363;
+  height: 36.84px;
 
   position: relative;
 
   p {
-    font-size: 10px;
+    font-size: 12px;
     width: 100%;
     margin-left: 15px;
     vertical-align: top;

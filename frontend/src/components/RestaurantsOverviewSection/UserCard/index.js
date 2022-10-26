@@ -1,1 +1,1 @@
-export {default} from './RestaurantCard.js'
+export {default} from './UserCard.js'

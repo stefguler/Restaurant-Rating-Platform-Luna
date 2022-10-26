@@ -2,6 +2,8 @@ import styled from "styled-components"
 
 export const RestaurantOverviewContainer = styled.div`
     width: 100%;
+    padding: 4.5rem 0 ;
+    background: #F8F8F9;
 `;
 
 export const SearchBarContainer = styled.div`
@@ -36,7 +38,7 @@ export const SearchInput = styled.input`
 
 export const RestaurantListFilterContainer = styled.div`
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   margin-top: 1rem;
   justify-content: center;
   margin-bottom: 3rem;
@@ -61,22 +63,8 @@ export const ListContainer = styled.div`
     border-radius: red;
   }  
 `
-
 export const RestaurantListFilter = styled.span`
   text-transform: uppercase;
   font-size: 20px;
   font-weight: 700;
-`
-
-
-export const FilterListGrid = styled.div`
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    width: 80vw;
-    grid-template-columns: repeat(4, 1fr);
-    font-weight: 400;
-    gap: 1rem 1rem;
-    padding: 1rem; 
-    margin: 0 auto;
 `

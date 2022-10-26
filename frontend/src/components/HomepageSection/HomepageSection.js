@@ -8,9 +8,8 @@ import {
   HomepageContainer,
   PageTitle,
   Separator,
-  RestaurantCardsGrid,
+  SearchBannerContainer,
 } from "./HomepageSection.styled";
-
 import RestaurantCardGrid from "./RestaurantCardGrid";
 
 export default function Homepage() {
@@ -68,42 +67,34 @@ export default function Homepage() {
     title: "restaurant 4",
     adress: "dummyadress 4",
     rating: 5,
-    ratingCount: 1210,
-  };
+    ratingCount: 1210
+  }
 
   const restaurantObject5 = {
     title: "restaurant 5",
     adress: "dummyadress 5",
     rating: 1,
-    ratingCount: 2,
-  };
+    ratingCount: 2
+  }
 
-  const restaurantlist = [
-    restaurantObject1,
-    restaurantObject2,
-    restaurantObject3,
-    restaurantObject4,
-    restaurantObject5,
-    restaurantObject1,
-  ];
+  const restaurantlist = [restaurantObject1, restaurantObject2, restaurantObject3, restaurantObject4, restaurantObject5, restaurantObject1]
 
   return (
     <>
-      <Header />
+    <Header></Header>
       <HomepageContainer>
-        <HomepageBanner
-          src="luna_banner.png"
-          alt="luna banner"
-        ></HomepageBanner>
+        {/* <SearchBannerContainer> */}
+          <HomepageBanner src='luna_banner.png' alt='luna banner'></HomepageBanner>
+        {/* </SearchBannerContainer> */}
         <InputContainer>
-          <SearchInput type="text" placeholder="Search..."></SearchInput>
+          <SearchInput type='text' placeholder='Search...'></SearchInput>
           <Button>Search </Button>
         </InputContainer>
         <PageTitle> Best rated restaurants</PageTitle>
         <Separator></Separator>
         <RestaurantCardGrid data={restaurantlist} />
       </HomepageContainer>
-      <Footer />
+      <Footer></Footer>
     </>
-  );
+  )
 }

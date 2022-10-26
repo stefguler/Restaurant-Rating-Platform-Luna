@@ -23,6 +23,7 @@ export default function RestaurantCard(props) {
                             edit={false}
                             size={40}
                             color2={'#ffd700'}
+                            color1={'#EBEBEB'}
                         />
                     <RestaurantRatingCount>{restaurantCard.ratingCount}</RestaurantRatingCount>
                 </RestaurantRatingContainer>

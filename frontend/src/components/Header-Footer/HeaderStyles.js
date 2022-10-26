@@ -3,12 +3,13 @@ import styled from "styled-components";
 export const HeaderMainContainerDiv = styled.div`
   display: flex;
   width: 100vw;
-  height: 40px;
+  height: 71px;
   justify-content: space-between;
   background-color: white;
   align-items: center;
-  /* z-index: 1000; */
-  border-bottom: 2px solid #D8D8D8; 
+  position: fixed;
+  z-index: 999;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 20px 40px rgba(0, 0, 0, 0.15);
 `;
 
 export const HeaderLunaParagraphContainerDiv = styled.div`
@@ -20,7 +21,10 @@ export const HeaderLunaParagraphContainerDiv = styled.div`
     background-color: white;
   }
   img {
-    width: 55px;
+    width: 144px;
+    height: 45px;
+    padding-left: 1rem;
+    
   }
 `;
 
@@ -35,11 +39,13 @@ export const HeaderHSPButtons = styled.button`
   /* border: 1px solid white; */
   background-color: white;
   border: none;
+  font-size: 20px;
 `;
 export const HeaderHSPButtonsHover = styled.button`
   /* border: 1px solid white; */
   background-color: white;
   border: none;
+  font-size: 20px;
 
   &::after {
     display: block;
@@ -67,6 +73,7 @@ export const HeaderSignLoginDiv = styled.div`
   /* width: 200px; */
   margin-left: 30px;
   margin-right: 20px;
+  height: 41px;
 `;
 
 export const HeaderSigninButton = styled.button`
@@ -79,6 +86,8 @@ export const HeaderSigninButton = styled.button`
   width: 100px;
   height: 30px;
   margin: 0.5px;
+  font-size: 16px;
+  height: 41px;
 `;
 
 export const HeaderSignButtonHover = styled.button`
@@ -91,6 +100,8 @@ export const HeaderSignButtonHover = styled.button`
   width: 100px;
   height: 30px;
   margin: 0.5px;
+  height: 41px;
+
 `;
 
 export const HeaderLoginButton = styled.button`
@@ -101,6 +112,8 @@ export const HeaderLoginButton = styled.button`
   border-bottom-right-radius: 15px;
   border-top-right-radius: 15px;
   margin: 0.5px;
+  font-size: 16px;
+  height: 41px;
 `;
 
 export const HeaderLoginButtonHover = styled.button`

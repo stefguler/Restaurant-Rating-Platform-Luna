@@ -11,6 +11,7 @@ text-transform: uppercase;
 color: #4C4C4C;
 padding-bottom: 16px;
 margin-bottom: 77px;
+margin-top: 50px;
 &::after {
   content: "  ";
   display: block;
