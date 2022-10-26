@@ -8,9 +8,10 @@ import {
   HomepageContainer,
   PageTitle,
   Separator,
-  RestaurantCardGrid,
+  RestaurantCardsGrid,
 } from "./HomepageSection.styled";
-import RestaurantCard from "./RestaurantCard";
+
+import RestaurantCardGrid from "./RestaurantCardGrid";
 
 export default function Homepage() {
   //const [users, setUsers] = useState([])
