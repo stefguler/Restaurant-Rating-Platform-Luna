@@ -10,6 +10,9 @@ import UserCardGrid from './UserCardGrid/UserCardGrid.js'
 
 
 export default function RestaurantOverview() {
+  //const [users, setUsers] = useState([])
+  //const token = useSelector(state => state.auth.accessToken)
+  const [activeFilter, setActiveFilter] = useState("Restaurant");
 
     //const [restaurants, setRestaurants] = useState([])
     //const [reviews, setReviews] = useState([])

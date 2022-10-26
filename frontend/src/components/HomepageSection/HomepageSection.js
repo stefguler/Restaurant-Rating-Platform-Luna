@@ -1,16 +1,22 @@
-
+import Footer from "../Header-Footer/Footer";
+import Header from "../Header-Footer/Header";
 import {
-    HomepageBanner, InputContainer, Button, SearchInput, HomepageContainer, PageTitle,
-    Separator} from './HomepageSection.styled'
-
-import RestaurantCardGrid from './RestaurantCardGrid/RestaurantCardGrid.js'
+  HomepageBanner,
+  InputContainer,
+  Button,
+  SearchInput,
+  HomepageContainer,
+  PageTitle,
+  Separator,
+  RestaurantCardGrid,
+} from "./HomepageSection.styled";
+import RestaurantCard from "./RestaurantCard";
 
 export default function Homepage() {
+  //const [users, setUsers] = useState([])
+  //const token = useSelector(state => state.auth.accessToken)
 
-    //const [users, setUsers] = useState([])
-    //const token = useSelector(state => state.auth.accessToken)
-
-    /*FETCH RESTAURANTS INIT
+  /*FETCH RESTAURANTS INIT
 
    //useEffect(() => {
 
@@ -36,26 +42,26 @@ export default function Homepage() {
 
    }, [token]); */
 
-    const restaurantObject1 = {
-        title: "restaurant 1",
-        adress: "dummyadress 1",
-        rating: 2,
-        ratingCount: 31
-    }
+  const restaurantObject1 = {
+    title: "restaurant 1",
+    adress: "dummyadress 1",
+    rating: 2,
+    ratingCount: 31,
+  };
 
-    const restaurantObject2 = {
-        title: "restaurant 2",
-        adress: "dummyadress 2",
-        rating: 4,
-        ratingCount: 35
-    }
+  const restaurantObject2 = {
+    title: "restaurant 2",
+    adress: "dummyadress 2",
+    rating: 4,
+    ratingCount: 35,
+  };
 
-    const restaurantObject3 = {
-        title: "restaurant 3",
-        adress: "dummyadress 3",
-        rating: 3.5,
-        ratingCount: 10
-    }
+  const restaurantObject3 = {
+    title: "restaurant 3",
+    adress: "dummyadress 3",
+    rating: 3.5,
+    ratingCount: 10,
+  };
 
     const restaurantObject4 = {
         title: "restaurant 4",
