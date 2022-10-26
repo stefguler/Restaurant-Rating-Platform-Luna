@@ -15,6 +15,9 @@ import { TestRegister } from "./TestingAuthentication/TestRegister";
 import TestFetching from "./TestingAuthentication/TestFetching";
 import LoginView from "./components/LoginSection/LoginView";
 import ValidationView from "./components/LoginSection/ValidationView";
+import RegistrationMessageView from "./components/LoginSection/RegistrationMessageView";
+import RegistrationView from "./components/LoginSection/RegistrationView";
+
 import CreateReviewSection from "./components/CreateReviewSection";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -29,6 +32,9 @@ root.render(
         <Route path="/createreview" element={<CreateReviewSection />} />
         <Route path="/login" element={<login />} />
         <Route path="/validation" element={<ValidationView />} />
+        <Route path="/registrationMessage" element={<RegistrationMessageView />} />
+        <Route path="/registration" element={<RegistrationView />} />
+
 
         {/* TestSignUp is only temporary */}
         <Route path="/TestSignUp" element={<TestSignUp />} />
