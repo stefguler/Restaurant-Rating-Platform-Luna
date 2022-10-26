@@ -44,7 +44,7 @@ export const HeaderHSPButtonsHover = styled.button`
     display: block;
     position: absolute;
     width: 25px;
-    margin-top: 10px;
+    margin-top: 6px;
     margin-left: 5px;
     height: 2px;
     content: "";

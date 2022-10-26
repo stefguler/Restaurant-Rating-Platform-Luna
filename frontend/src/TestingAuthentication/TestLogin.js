@@ -28,6 +28,7 @@ export const TestLogin = () => {
   return (
     <>
       <Header />
+      <h1> This is fake and it's for testing purposes </h1>
       <main className="form-signin w-100 m-auto">
         <form onSubmit={submit}>
           <h1 className="h3 mb-3 fw-normal">Please sign in</h1>

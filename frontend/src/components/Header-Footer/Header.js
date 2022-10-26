@@ -38,18 +38,18 @@ function Header() {
   //   setBoldText(currnet => !currnet);
   // };
 
-  const Nav = () => {
-    const auth = useSelector(state => state.auth.value);
-  };
+  // const Nav = () => {
+  //   const auth = useSelector(state => state.auth.value);
+  // };
 
-  const logout = async () => {
-    await axios.post("logout");
-  };
-  let links;
-  if (auth) {
-    // links = HTML HERE
-    // onClick={logout}
-  }
+  // const logout = async () => {
+  //   await axios.post("logout");
+  // };
+  // let links;
+  // if (auth) {
+  //   // links = HTML HERE
+  //   // onClick={logout}
+  // }
   return (
     <HeaderMainContainerDiv>
       <HeaderLunaParagraphContainerDiv>

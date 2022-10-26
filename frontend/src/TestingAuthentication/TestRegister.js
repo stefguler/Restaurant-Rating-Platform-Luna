@@ -47,6 +47,8 @@ export const TestRegister = () => {
   return (
     <>
       <Header />
+      <h1> This is fake and it's for testing purposes </h1>
+
       {location.pathname === "/TestLogin" ? true : false}
       <main className="form-signin w-100 m-auto">
         <form onSubmit={submit}>

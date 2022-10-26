@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./TestSignUpStyles.css";
 import { TestRegister } from "./TestRegister";
@@ -12,24 +12,24 @@ function TestSignUp() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    async () => {
-      try {
-
-        // const response = await axios.get('http://localhost:8000/api/user')
-        const response = await axios.get('user')
-        
-        const user = response.data;
-        
-        setMessage(`Hi ${user.first_name} ${user.last_name}`);
-        dispatch(setLogin(true));
-      } catch(e) {
-        setMessage(message)
-        dispatch(setLogin(false));
-
-      }
-    }();
-  }, []);
+//  useEffect(() => {
+//    async () => {
+//      try {
+//
+//        // const response = await axios.get('http://localhost:8000/api/user')
+//        const response = await axios.get('user')
+//
+//        const user = response.data;
+//
+//        setMessage(`Hi ${user.first_name} ${user.last_name}`);
+//        dispatch(setLogin(true));
+//      } catch(e) {
+//        setMessage(message)
+//        dispatch(setLogin(false));
+//
+//      }
+//    }();
+//  }, []);
   return (
     <>
       <h3>{message}</h3>
