@@ -1,4 +1,4 @@
-name: luna_projects
+name: luna_project
 dependencies:
   - python=3.10.4
   - pip=22.2.2
