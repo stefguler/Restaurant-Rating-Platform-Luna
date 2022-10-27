@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-wuk#$*w8oq(ky01l=_pfvo#-z@dmi_q)em8yn-=vprkx6n8^%^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
-ALLOWED_HOSTS = ['127.0.0.1', 'https://team1.propulsion-learn.ch/', '46.101.187.151', 'backend', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://team1.propulsion-learn.ch', '46.101.187.151', 'backend', 'localhost']
 
 # Application definition
 
@@ -159,3 +159,5 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=5),
 }
+
+CSRF_TRUSTED_ORIGINS = ['https://team1.propulsion-learn.ch', 'http://46.101.187.151']
