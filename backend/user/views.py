@@ -288,9 +288,9 @@ class ResetAPIView(APIView):
         if data['password'] != data['password_confirm']:
             raise exceptions.APIException('Passwords do not match!')
 
-        reset_password = ResetPassword.objects.filter(token=data['token']).filter()
+        reset_password = ResetPassword.objects.filter(token=data['token']).first()
 
-        if reset_password:
+        if not reset_password:
             raise exceptions.APIException('Invalid link!')
 
         user = User.objects.filter(email=reset_password.email).first()
