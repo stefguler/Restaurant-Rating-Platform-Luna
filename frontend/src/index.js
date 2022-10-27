@@ -32,7 +32,7 @@ root.render(
         <Route path="/restaurants" element={<RestaurantsOverviewSection />} />
         <Route path="/restaurant/" element={<RestaurantPageSection />} />
         <Route path="/createreview" element={<CreateReviewSection />} />
-        <Route path="/login" element={<login />} />
+        <Route path="/login" element={<LoginView />} />
         <Route path="/validation" element={<ValidationView />} />
         <Route path="/registrationMessage" element={<RegistrationMessageView />} />
         <Route path="/registration" element={<RegistrationView />} />
