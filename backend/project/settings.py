@@ -144,7 +144,7 @@ AUTH_USER_MODEL = 'user.User'
 
 
 REST_FRAMEWORK = {
-    'EXCEPTION_HANDER': 'user.exceptions.status_code_handler',
+    'EXCEPTION_HANDLER': 'user.exceptions.status_code_handler',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
