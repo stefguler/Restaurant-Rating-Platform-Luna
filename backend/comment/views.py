@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from comment.models import Comment
+from review.models import Review
 from rest_framework.permissions import IsAdminUser, IsAuthenticated, AllowAny
 from comment.serializers import CommentSerializer, CreateCommentSerializer
 from user.serializers import UserSerializer
@@ -31,7 +32,7 @@ class CreateCommentView(GenericAPIView):
         serializer = CreateCommentSerializer(data=request.data)
 
         if serializer.is_valid():
-            serializer.save(user=request.user, review=self.kwargs['review_id'])
+            serializer.save(user=request.user, review=Review.objects.get(id=self.kwargs['review_id']))
 
         return Response(serializer.data)
 
