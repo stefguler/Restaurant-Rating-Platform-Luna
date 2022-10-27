@@ -9,9 +9,7 @@ import { GoThumbsup } from 'react-icons/go';
 export default function ReviewCard(props) {
 
     const reviewCard = props.review;
-    console.log(reviewCard)
-    console.log(reviewCard.user)
-    console.log(reviewCard.name)
+    const style = props.style;
 
     return (
         <>
