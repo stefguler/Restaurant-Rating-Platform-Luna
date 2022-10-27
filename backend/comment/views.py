@@ -11,8 +11,6 @@ User = get_user_model()
 
 
 class CommentsFromUserView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request, *args, **kwargs):
         all_comments = Comment.objects.all()
         serializer = CommentSerializer(all_comments, many=True)
@@ -26,8 +24,6 @@ class CommentsFromUserView(GenericAPIView):
 
 
 class CreateCommentView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def post(self, request, *args, **kwargs):
         serializer = CreateCommentSerializer(data=request.data)
 
@@ -38,8 +34,6 @@ class CreateCommentView(GenericAPIView):
 
 
 class DeleteCommentView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def delete(self, request, *args, **kwargs):
         specific_comment = Comment.objects.get(id=self.kwargs['comment_id'])
         specific_comment.delete()

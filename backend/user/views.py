@@ -15,8 +15,6 @@ def code_generator(length=5):
 
 
 class APIView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request):
         api_urls = {
             "1. Title": "Registration",
@@ -66,8 +64,6 @@ class APIView(GenericAPIView):
 
 
 class RegistrationView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def post(self, request):
         send_mail(
             'Registration code',
@@ -85,8 +81,6 @@ class RegistrationView(GenericAPIView):
 
 
 class RegistrationValidateView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def post(self, request):
         all_users = User.objects.all()
         serializer = UserSerializer(all_users, many=True)
@@ -99,8 +93,6 @@ class RegistrationValidateView(GenericAPIView):
 
 
 class MeView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def get(self, request, *args, **kwargs):
         specific_user = User.objects.get(id=request.user.id)
         serializer = UserSerializer(specific_user, many=False)
@@ -118,8 +110,6 @@ class MeView(GenericAPIView):
 
 
 class UsersListView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request):
         all_users = User.objects.all()
         serializer = UserSerializer(all_users, many=True)
@@ -127,8 +117,6 @@ class UsersListView(GenericAPIView):
 
 
 class UsersSearchView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request, *args, **kwargs):
         users = User.objects.filter(username__icontains=self.kwargs['search_string'])
         serializer = UserSerializer(users, many=True)
@@ -137,8 +125,6 @@ class UsersSearchView(GenericAPIView):
 
 
 class UsersIDView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request, *args, **kwargs):
         specific_user = User.objects.get(id=self.kwargs['user_id'])
         serializer = UserSerializer(specific_user, many=False)
