@@ -273,7 +273,7 @@ class ForgotPasswordAPIView(APIView):
         send_mail(
             subject="Reset your password!",
             message="Click <a href='%s'>here</a> to reset your password" % url,
-            from_email="from@example.com",
+            from_email="team1@sit.academy",
             recipient_list=[email]
         )
 
@@ -283,4 +283,24 @@ class ForgotPasswordAPIView(APIView):
 
 class ResetAPIView(APIView):
     def post(self, request):
-        pass
+        data = request.data
+
+        if data['password'] != data['password_confirm']:
+            raise exceptions.APIException('Passwords do not match!')
+
+        reset_password = ResetPassword.objects.filter(token=data['token']).filter()
+
+        if reset_password:
+            raise exceptions.APIException('Invalid link!')
+
+        user = User.objects.filter(email=reset_password.email).first()
+
+        if not user:
+            raise exceptions.APIException('User not found')
+
+        user.set_password(data['password'])
+        user.save()
+
+        return Response({
+            'message': "Successfully resetted password"
+        })
