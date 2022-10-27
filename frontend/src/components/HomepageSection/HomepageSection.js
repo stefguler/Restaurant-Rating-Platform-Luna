@@ -1,46 +1,44 @@
 import Footer from "../Header-Footer/Footer";
 import Header from "../Header-Footer/Header";
-import {
-  HomepageBanner,
-  InputContainer,
-  Button,
-  SearchInput,
-  HomepageContainer,
-  PageTitle,
-  Separator,
-  SearchBannerContainer,
-} from "./HomepageSection.styled";
+import { HomepageBanner,  InputContainer,  Button,  SearchInput,  HomepageContainer,  PageTitle,  Separator } from "./HomepageSection.styled";
 import RestaurantCardGrid from "./RestaurantCardGrid";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Homepage() {
   //const [users, setUsers] = useState([])
+  const [restaurants, setRestaurants] = useState('')
   //const token = useSelector(state => state.auth.accessToken)
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MzA3OTc0LCJpYXQiOjE2NjY4NzU5NzQsImp0aSI6IjY3NjY4MmNjYTc0NTQzMDliNDg4ZjQ4ZGE1N2YyYjRiIiwidXNlcl9pZCI6MX0.knkJJppK0jmWSjd5DEFxDHGyhMZHBQksb_qTfhBHbC4"
+  
+  const navigate = useNavigate()
+  
+  /*FETCH RESTAURANTS INIT*/
+   useEffect(() => {
 
-  /*FETCH RESTAURANTS INIT
+       if (token === undefined) navigate('/')
 
-   //useEffect(() => {
-
-       // if (token === undefined) navigate('/')
-
-      
-       const url = "https://motion.propulsion-home.ch/backend/api/users/?limit=250&offset=1000"
+       const url = "http://localhost:8001/backend/api/restaurants/"
        const config = {
            method: "GET",
            headers: new Headers({
                "Content-Type": "application/json",
                "Authorization": `Bearer ${token}`
            }),
-           // body: JSON.stringify(jsObject)
        }
    
        fetch(url, config).then(
-           response => response.json())
-           // .then(
-           //     data => setNotificationCount(data.count))
+           response => response.json()
+           )
            .then(
-               data => setUsers(data.results))
+               data => setRestaurants(data.results),
+               console.log('restaurant in fetch: ', restaurants)
+               )
 
-   }, [token]); */
+   }, [token]);
+
+   console.log('restaurants: ', restaurants)
+
 
   const restaurantObject1 = {
     title: "restaurant 1",
