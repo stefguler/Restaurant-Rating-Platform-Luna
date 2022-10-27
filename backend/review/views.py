@@ -12,8 +12,6 @@ User = get_user_model()
 
 
 class BestRatedRestaurantsView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request):
         all_reviews = Review.objects.all()
         serializer = ReviewSerializer(all_reviews, many=True)
@@ -91,8 +89,6 @@ class SearchView(GenericAPIView):
 
 
 class CreateReviewView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def post(self, request, *args, **kwargs):
         serializer = CreateReviewSerializer(data=request.data)
 
@@ -103,8 +99,6 @@ class CreateReviewView(GenericAPIView):
 
 
 class ReviewsForRestaurantView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request, *args, **kwargs):
         all_reviews = Review.objects.all()
         serializer = ReviewSerializer(all_reviews, many=True)
@@ -118,8 +112,6 @@ class ReviewsForRestaurantView(GenericAPIView):
 
 
 class ReviewsByUserView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request, *args, **kwargs):
         all_reviews = Review.objects.all()
         serializer = ReviewSerializer(all_reviews, many=True)
@@ -133,8 +125,6 @@ class ReviewsByUserView(GenericAPIView):
 
 
 class ReviewView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def get(self, request, *args, **kwargs):
         specific_review = Review.objects.get(id=self.kwargs['review_id'])
         serializer = ReviewSerializer(specific_review, many=False)
@@ -178,8 +168,6 @@ class LikeView(GenericAPIView):
 
 
 class LikedReviewsView(GenericAPIView):
-    permission_classes = [AllowAny]
-
     def get(self, request):
         all_reviews = Review.objects.all()
         serializer = ReviewSerializer(all_reviews, many=True)
