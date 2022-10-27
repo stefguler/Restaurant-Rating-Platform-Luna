@@ -7,7 +7,7 @@ height: 100vh;
 align-items: center;
 background-color: #F2F2F2;
 `;
-export const ValidationForm = styled.div`
+export const ValidationForm = styled.form`
 display: flex;
 flex-direction: column;
 align-items: center;
