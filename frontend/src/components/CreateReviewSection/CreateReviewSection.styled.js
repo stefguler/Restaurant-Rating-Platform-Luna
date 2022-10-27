@@ -10,10 +10,6 @@ export const CreateReviewContainer = styled.div`
   padding: 4.5rem 0 ;
 `
 
-export const RestaurantBannerContainer = styled.div`
-
-`
-
 export const AvatarOverlay = styled.div`
   background: rgba(0, 0, 0, 10);
   width: 100%;
@@ -100,6 +96,7 @@ export const Submit = styled.button`
   border-radius: 4rem;
   height: 57px;
   font-size: 20px;
+  text-transform: uppercase;
 
   :hover{
     background: white;
