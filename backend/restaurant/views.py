@@ -82,3 +82,27 @@ class RestaurantView(GenericAPIView):
         specific_restaurant.delete()
 
         return Response("Restaurant deleted.")
+
+
+class CategoryListView(GenericAPIView):
+    permission_classes = [IsAuthenticated, AllowAny]
+    # http_method_names = ['get']
+
+    def get(self, request):
+        all_restaurants = Restaurant.objects.all()
+        serializer = RestaurantSerializer(all_restaurants, many=True)
+
+        all_categories = list()
+        for counter in range(0, len(serializer.data)):
+            all_categories.append(serializer.data[counter]['category'])
+
+        unique_categories = list()
+        for counter in range(0, len(all_categories)):
+            category_is_unique = True
+            for sub_counter in range(0, len(unique_categories)):
+                if all_categories[counter] == unique_categories[sub_counter]:
+                    category_is_unique = False
+            if category_is_unique:
+                unique_categories.append(all_categories[counter])
+
+        return Response(unique_categories)
