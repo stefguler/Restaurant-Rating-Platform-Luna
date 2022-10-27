@@ -11,6 +11,8 @@ export default function ReviewCard(props) {
     const reviewCard = props.review;
     const style = props.style;
 
+    console.log("reviewcard: ", reviewCard)
+
     return (
         <>
             <ReviewCardContainer>

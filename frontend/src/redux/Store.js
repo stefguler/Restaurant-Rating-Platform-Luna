@@ -14,6 +14,5 @@ export default configureStore({
     auth: authReducer,
     profile: profileReducer,
     restaurant: restaurantReducer
-
   }
 })

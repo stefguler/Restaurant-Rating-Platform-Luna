@@ -94,7 +94,7 @@ function Header() {
         )}
 
         {hoverSearchButtonState === true ||
-        location.pathname === "/restaurants" ? (
+        location.pathname === "/search" ? (
           <HeaderHSPButtonsHover
             // style={{
             //   fontWeight: boldText ? "bold" : "normal",
@@ -103,7 +103,7 @@ function Header() {
             //   setHoverSearchButtonState(true);
             // }}
             onClick={() => {
-              navigate("/restaurants");
+              navigate("/search");
               setHoverSearchButtonState(true);
             }}
             // onClick={handleBoldText}

@@ -8,7 +8,6 @@ import { setCurrentRestaurant } from '../../../redux/slices/Restaurant';
 export default function RestaurantCard(props) {
 
     const restaurantCard = props.restaurant;
-    console.log("single restaurant: ", restaurantCard)
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -18,7 +17,7 @@ export default function RestaurantCard(props) {
     const handleNavigateToRestaurantPage = () =>  {
         
         dispatch(setCurrentRestaurant(restaurantCard))
-        
+        console.log()
         navigate("/restaurant")
       }
 
