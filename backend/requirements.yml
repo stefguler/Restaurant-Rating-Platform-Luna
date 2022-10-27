@@ -10,3 +10,4 @@ dependencies:
       - Pillow==9.2.0
       - flake8==5.0.4
       - gunicorn
+      - django-cors-headers
