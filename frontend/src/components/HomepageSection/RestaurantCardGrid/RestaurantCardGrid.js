@@ -3,13 +3,13 @@ import RestaurantCard from '../RestaurantCard/RestaurantCard.js'
 
 export default function RestaurantCardGrid(props) {
   
-  console.log(props)
+  console.log("props passed", props)
 
   return (
     <>
       <RestaurantCardsGrid>
         {
-          props.data.map((restaurant, keyx) => {
+          props.data?.map((restaurant, keyx) => {
             return <RestaurantCard key={keyx} restaurant={restaurant}></RestaurantCard>
           })
         }

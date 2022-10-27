@@ -5,7 +5,7 @@ import StarsRating from 'stars-rating'
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
-export default function CreateReview(props) {
+export default function CreateReview() {
   //const restaurant = props.restaurant
 
   //const [restaurant, setRestaurants] = useState([])
@@ -13,6 +13,7 @@ export default function CreateReview(props) {
   //const user = useSelector(state => state.auth.currentUser)
   const [rating, setRating] = useState();
   const [ratingDescription, setRatingDescription] = useState();
+  const restaurant = useSelector(state => state.restaurant.currentRestaurant)
 
 
   /*FETCH RESTAURANTS INIT
@@ -41,13 +42,13 @@ export default function CreateReview(props) {
 
    }, [token]); */
 
-  const restaurant = {
-    avatar: 'restaurant_sample_banner.png',
-    title: "Ramen Ichiraku",
-    details: "Ramen & Noodlesoups",
-    rating: 5,
-    reviews: 69,
-  }
+  // const restaurant = {
+  //   avatar: 'restaurant_sample_banner.png',
+  //   title: "Ramen Ichiraku",
+  //   details: "Ramen & Noodlesoups",
+  //   rating: 5,
+  //   reviews: 69,
+  // }
 
   const ratingChanged = (newRating) => {
     console.log(newRating)
@@ -67,28 +68,30 @@ export default function CreateReview(props) {
     console.log('newRatingDescription:', ratingDescription)
   }
 
+  let randomRating = Math.round( Math.floor(Math.random() * 5)*2)/2;
+  let randomReviewCount = Math.floor(Math.random() * 99);
+
 
   return (
     <>
       <Header></Header>
       <CreateReviewContainer>
-        {/* <RestaurantBannerContainer> */}
         <AvatarOverlay>
-          <RestaurantAvatar src={restaurant.avatar} alt='restaurant avatar'></RestaurantAvatar>
+          <RestaurantAvatar src='no_picture_found.png' alt='restaurant avatar'></RestaurantAvatar>
         </AvatarOverlay>
         <RestaurantDetailsContainer>
-          <RestaurantTitle>{restaurant.title}</RestaurantTitle>
-          <RestaurantInfo>{restaurant.details}</RestaurantInfo>
+          <RestaurantTitle>{restaurant.name}</RestaurantTitle>
+          <RestaurantInfo>{restaurant.category}</RestaurantInfo>
           <RatingContainer>
             <StarsRating
               count={5}
-              value={restaurant.rating}
+              value={randomRating}
               edit={false}
               size={40}
               color2={'#ffd700'}
               color1={'#EBEBEB'}
             />
-            <ReviewsInfo>{restaurant.reviews} reviews</ReviewsInfo>
+            <ReviewsInfo>{randomReviewCount} reviews</ReviewsInfo>
           </RatingContainer>
         </RestaurantDetailsContainer>
         {/* </RestaurantBannerContainer> */}
