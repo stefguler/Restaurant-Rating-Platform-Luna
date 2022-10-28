@@ -6,7 +6,7 @@ import {
     CreateRestaurantContainer,
     CreateRestaurantForm,
     TitleContainer,
-    SearchButtonContainer, CategoryName,
+    SearchButtonContainer, CategoryName, FormInputSelect,
 
 } from "./CreateRestaurantSection.styled";
 
@@ -69,11 +69,23 @@ return (
                         </section>
                         <section>
                         <CategoryName>Category</CategoryName>
-                        <FormInput type="text" placeholder="" value={category} onChange={(args) => setCategory(args.target.value)} />
+                            <FormInputSelect type="text" placeholder="" value={category} onChange={(args) => setCategory(args.target.value)}>
+                                <option>Select a value...</option>
+                                <option>Indian</option>
+                                <option>Chinese</option>
+                                <option>Italian</option>
+                                <option>Burger</option>
+                            </FormInputSelect>
                         </section>
                         <section>
                         <CategoryName>Country</CategoryName>
-                        <FormInput type="text" placeholder="" value={country} onChange={(args) => setCountry(args.target.value)} />
+                        <FormInputSelect type="text" placeholder="" value={country} onChange={(args) => setCountry(args.target.value)} >
+                          <option>Select a value...</option>
+                                <option>Switzerland</option>
+                                <option>Hungary</option>
+                                <option>Macedonia</option>
+                                <option>Turkey</option>
+                        </FormInputSelect>
                         </section>
                         <section>
                         <CategoryName>Street</CategoryName>
@@ -105,7 +117,13 @@ return (
                         </section>
                         <section>
                         <CategoryName>Price Level</CategoryName>
-                        <FormInput type="text" placeholder="" value={priceLevel} onChange={(args) => setPriceLevel(args.target.value)} />
+                        <FormInputSelect type="text" placeholder="" value={priceLevel} onChange={(args) => setPriceLevel(args.target.value)} >
+                             <option>Select a value...</option>
+                             <option>0-10</option>
+                             <option>11-20</option>
+                             <option>21-30</option>
+                             <option>31-200</option>
+                        </FormInputSelect>
                         </section>
                         <section>
                         <FormInput type="file" placeholder="Choose a file..." />
