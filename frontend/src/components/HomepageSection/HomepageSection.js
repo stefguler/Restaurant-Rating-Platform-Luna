@@ -34,13 +34,13 @@ export default function Homepage() {
       .then(
         data => setRestaurants(data),
       )
+    
 
   }, [token]);
 
   const handleChangeSearchInput = (e) => {
     setSearchInput(e.target.value)
   }
-
 
   const handleSearchRequest = () => {
     const url = `http://localhost:8001/backend/api/search/}`
@@ -90,3 +90,4 @@ export default function Homepage() {
     </>
   )
 }
+
