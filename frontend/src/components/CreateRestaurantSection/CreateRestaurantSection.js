@@ -62,55 +62,55 @@ return (
                 <TitleContainer>
                     <Title>CREATE NEW RESTAURANT</Title>
                 </TitleContainer>
-                        <CreateRestaurantForm>
-                                <section>
-                                <CategoryName>Name</CategoryName>
-                                <FormInput type="text" placeholder="" value={name} onChange={(args) => setName(args.target.value)} />
-                                </section>
-                                <section>
-                                <CategoryName>Category</CategoryName>
-                                <FormInput type="text" placeholder="" value={category} onChange={(args) => setCategory(args.target.value)} />
-                                </section>
-                                <section>
-                                <CategoryName>Country</CategoryName>
-                                <FormInput type="text" placeholder="" value={country} onChange={(args) => setCountry(args.target.value)} />
-                                </section>
-                                <section>
-                                <CategoryName>Street</CategoryName>
-                                <FormInput type="text" placeholder="" value={street} onChange={(args) => setStreet(args.target.value)} />
-                                </section>
-                                <section>
-                                <CategoryName>City</CategoryName>
-                                <FormInput type="text" placeholder="" value={city} onChange={(args) => setCity(args.target.value)} />
-                                </section>
-                                <section>
-                                <CategoryName>Zip</CategoryName>
-                                <FormInput type="text" placeholder="" value={zip} onChange={(args) => setZip(args.target.value)} />
-                                </section>
-                                <section>
-                                <CategoryName>Website</CategoryName>
-                                <FormInput type="text" placeholder="" value={website} onChange={(args) => setWebsite(args.target.value)} />
-                                </section>
-                                <section>
-                                <CategoryName>Phone</CategoryName>
-                                <FormInput type="text" placeholder="" value={phone} onChange={(args) => setPhone(args.target.value)} />
-                                </section>
-                                <section>
-                                <CategoryName>Email</CategoryName>
-                                <FormInput type="text" placeholder="" value={email} onChange={(args) => setEmail(args.target.value)} />
-                                </section>
-                                <section>
-                                <CategoryName>Opening Hours</CategoryName>
-                                <FormInput type="text" placeholder="" value={openingHours} onChange={(args) => setOpeningHours(args.target.value)} />
-                                </section>
-                                <section>
-                                <CategoryName>Price Level</CategoryName>
-                                <FormInput type="text" placeholder="" value={priceLevel} onChange={(args) => setPriceLevel(args.target.value)} />
-                                </section>
-                                <section>
-                                <FormInput type="file" placeholder="Choose a file..." />
-                                </section>
-                         </CreateRestaurantForm>
+                <CreateRestaurantForm>
+                        <section>
+                        <CategoryName>Name</CategoryName>
+                        <FormInput type="text" placeholder="" value={name} onChange={(args) => setName(args.target.value)} />
+                        </section>
+                        <section>
+                        <CategoryName>Category</CategoryName>
+                        <FormInput type="text" placeholder="" value={category} onChange={(args) => setCategory(args.target.value)} />
+                        </section>
+                        <section>
+                        <CategoryName>Country</CategoryName>
+                        <FormInput type="text" placeholder="" value={country} onChange={(args) => setCountry(args.target.value)} />
+                        </section>
+                        <section>
+                        <CategoryName>Street</CategoryName>
+                        <FormInput type="text" placeholder="" value={street} onChange={(args) => setStreet(args.target.value)} />
+                        </section>
+                        <section>
+                        <CategoryName>City</CategoryName>
+                        <FormInput type="text" placeholder="" value={city} onChange={(args) => setCity(args.target.value)} />
+                        </section>
+                        <section>
+                        <CategoryName>Zip</CategoryName>
+                        <FormInput type="text" placeholder="" value={zip} onChange={(args) => setZip(args.target.value)} />
+                        </section>
+                        <section>
+                        <CategoryName>Website</CategoryName>
+                        <FormInput type="text" placeholder="" value={website} onChange={(args) => setWebsite(args.target.value)} />
+                        </section>
+                        <section>
+                        <CategoryName>Phone</CategoryName>
+                        <FormInput type="text" placeholder="" value={phone} onChange={(args) => setPhone(args.target.value)} />
+                        </section>
+                        <section>
+                        <CategoryName>Email</CategoryName>
+                        <FormInput type="text" placeholder="" value={email} onChange={(args) => setEmail(args.target.value)} />
+                        </section>
+                        <section>
+                        <CategoryName>Opening Hours</CategoryName>
+                        <FormInput type="text" placeholder="" value={openingHours} onChange={(args) => setOpeningHours(args.target.value)} />
+                        </section>
+                        <section>
+                        <CategoryName>Price Level</CategoryName>
+                        <FormInput type="text" placeholder="" value={priceLevel} onChange={(args) => setPriceLevel(args.target.value)} />
+                        </section>
+                        <section>
+                        <FormInput type="file" placeholder="Choose a file..." />
+                        </section>
+                 </CreateRestaurantForm>
                 <SearchButtonContainer>
                     <FormButton>Search</FormButton>
                 </SearchButtonContainer>
