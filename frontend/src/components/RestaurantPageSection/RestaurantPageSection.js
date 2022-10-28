@@ -30,7 +30,7 @@ export default function RestaurantPageSection() {
     if (token === undefined) navigate('/')
 
 
-    const url = `http://localhost:8001/backend/api/reviews/restaurant/${restaurant.id}`
+    const url = `https://team1.propulsion-learn.ch/backend/api/reviews/restaurant/${restaurant.id}`
     const config = {
       method: "GET",
       headers: new Headers({
@@ -66,7 +66,7 @@ export default function RestaurantPageSection() {
 
 
   const handleFilterRequest = () => {
-    const url = `http://localhost:8001/backend/api/search/}`
+    const url = `https://team1.propulsion-learn.ch/backend/api/search/}`
     const searchData = {
       type: "reviews",
       text_content: filterInput,

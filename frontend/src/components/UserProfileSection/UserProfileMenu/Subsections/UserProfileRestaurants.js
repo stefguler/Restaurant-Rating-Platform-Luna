@@ -1,7 +1,17 @@
-import { UserSubSectionsContainer, UserSubSectionContent } from './UserProfileSubSections.styled';
+import { useNavigate } from 'react-router-dom';
+import { UserSubSectionsContainer, UserSubSectionContent, CreateButton } from './UserProfileSubSections.styled';
+
 
 const UserProfileRestaurants = () => {
+
+    const navigate = useNavigate()
+
+    const handleCreateRestaurant = () => {
+        navigate("/createRestaurant")
+    }
+
     return(
+        <>
         <UserSubSectionsContainer>
             <address>
                 <strong>Laurent H.</strong><br />
@@ -13,6 +23,9 @@ const UserProfileRestaurants = () => {
                 <h2>RESTAURANTS</h2>
             </UserSubSectionContent>
         </UserSubSectionsContainer>
+        <CreateButton onClick={handleCreateRestaurant}>create restaurant</CreateButton>
+ 
+        </>
     )
 };
 
