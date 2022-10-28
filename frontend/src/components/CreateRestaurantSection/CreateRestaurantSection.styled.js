@@ -66,3 +66,29 @@ letter-spacing: 0px;
 text-align: left;
 
 `;
+export const FormInputSelect = styled.select`
+width: 340px;
+    border: 1px solid #EBEBEB;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #979797;
+    padding: 6px;
+    &:focus {
+        border: 1px solid #EBEBEB;
+    }
+    &::placeholder {
+      color: #979797;
+    }
+    
+    options{
+        font-family: Karla;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0px;
+        text-align: left;
+        
+
+
+     }
+`;
