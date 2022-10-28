@@ -4,16 +4,17 @@ import {UserCardContainer, CardHeader, UserAvatar, UserName, ReviewsAmount, User
 export default function UserCard(props) {
 
     const userCard = props.user;
+    let randomReviewCount = Math.floor(Math.random() * 99);
 
     return (
         <>
             <UserCardContainer>
                 <CardHeader />
                 <UserSection>
-                    <UserAvatar src={userCard.avatar}></UserAvatar>
+                    <UserAvatar src={"no_picture_found.png"}></UserAvatar>
                     <UserSectionText>
-                        <UserName>{userCard.name}</UserName>
-                        <ReviewsAmount>{userCard.reviews} Reviews in total</ReviewsAmount>
+                        <UserName>{userCard.first_name} {userCard.last_name}</UserName>
+                        <ReviewsAmount>{randomReviewCount} Reviews in total</ReviewsAmount>
                     </UserSectionText>
                 </UserSection>
                 <DescriptionSection>

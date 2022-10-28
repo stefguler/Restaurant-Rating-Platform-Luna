@@ -8,10 +8,9 @@ box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 20px 40px rgba(0, 0, 0, 0.15);
 border-radius: 0.5rem;
 flex-direction: column;
 align-items: center;
-height: 192px;
+max-height: 192px;
 width: 271px;
 margin: 0 auto;
-cursor: pointer;
 `;
 
 export const CardHeader = styled.div`
@@ -38,6 +37,8 @@ export const UserSectionText = styled.div`
 `
 export const UserAvatar = styled.img`
     width: 75px;
+    border: 2px dashed #b3b2b2;
+
 
 `
 export const UserName = styled.div`

@@ -8,10 +8,9 @@ box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 20px 40px rgba(0, 0, 0, 0.15);
 border-radius: 0.5rem;
 flex-direction: column;
 align-items: center;
-height: 410px;
+max-height: 410px;
 width: 271px;
 margin: 0 auto;
-cursor: pointer;
 `;
 
 export const CardHeader = styled.div`
@@ -38,6 +37,7 @@ export const UserSectionText = styled.div`
 `
 export const UserAvatar = styled.img`
     width: 75px;
+    border: 2px dashed #b3b2b2;
 
 `
 export const UserName = styled.div`
@@ -66,7 +66,9 @@ export const ReviewTitle = styled.div`
 
 export const ReviewDescription = styled.div`
     font-size: 14px;
-    height: 80px;
+    height: 50px;
+    text-align: left;
+    justify-self: flex-start;
 `
 export const ReviewActions = styled.div`
     width: 95%;
@@ -77,6 +79,14 @@ export const ReviewActions = styled.div`
     border-radius: 5rem;
     font-size: 14px;
     font-weight: 300;
+
+    div {
+        :hover {
+            background: white;
+            border: 1px solid #EBEBEB;
+            color: #EBEBEB;
+        }
+    }
 `
 export const LikesSection = styled.div`
     display: flex;
@@ -88,6 +98,10 @@ export const LikesSection = styled.div`
     padding: 0 1rem;
     gap: 0 1rem;
     cursor: pointer;
+    :hover {
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+        }
 `
 export const CommentsSection = styled.div`
     display: flex;
@@ -97,6 +111,10 @@ export const CommentsSection = styled.div`
     width: 50%;
     height: 33px;
     cursor: pointer;
+    :hover {
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
 `
 export const LatestCommentSection = styled.div`
     display: flex;

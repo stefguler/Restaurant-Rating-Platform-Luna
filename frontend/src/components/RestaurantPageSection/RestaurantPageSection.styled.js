@@ -7,15 +7,19 @@ export const RestaurantPageContainer = styled.div`
 `
 
 export const RestaurantAvatarOverlay = styled.div`
+  display: flex;
   width: 100%;
   height: 200px;
   background: rgba(0, 0, 0, 10); 
+  justify-content: center;
+
 `
 
 export const RestaurantAvatar = styled.img`
-  width: 100%;
+  width: 25%;
   opacity: 80%;
   height: 500px;
+
 `
 
 export const TopContainer = styled.div`
@@ -23,6 +27,7 @@ export const TopContainer = styled.div`
   position: absolute;
   top: 7rem;
   justify-content: space-around;
+  gap: 50rem;
   width: 100%;
 `
 

@@ -85,12 +85,30 @@ export const Separator = styled.div`
 export const RestaurantCardsGrid = styled.div`
     display: grid;
     align-items: center;
-    width: 60%;
-    /* justify-content: center; */
     grid-template-columns: repeat(4, 1fr);
     font-weight: 400;
     gap: 1rem 1rem;
     padding: 1rem; 
     margin: 0 auto;
+
+    @media only screen and (max-width: 1150px) {
+        
+        grid-template-columns: repeat(3, 1fr);
+         
+    }
+
+    @media only screen and (max-width: 900px) {
+        
+        grid-template-columns: repeat(2, 1fr);
+         
+    }
+
+    @media only screen and (max-width: 660px) {
+        
+        grid-template-columns:  1fr;
+         
+    }
+
 `
+
 
