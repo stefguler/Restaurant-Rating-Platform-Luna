@@ -268,7 +268,8 @@ class ForgotPasswordAPIView(APIView):
             email=request.data['email'],
             token=token
         )
-        url = "http://localhost:3000/reset/" + token
+        url1 = "http://localhost:3000/reset/" + token
+        url = "http://https://team1.propulsion-learn.ch/reset/" + token
 
         send_mail(
             subject="Reset your password!",
