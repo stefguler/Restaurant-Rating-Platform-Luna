@@ -28,7 +28,7 @@ class User(AbstractUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
 
     code = models.CharField(max_length=5, default=code_generator)
     username = models.CharField(max_length=100, unique=True)
