@@ -2,7 +2,7 @@ import {RestaurantCardsGrid} from '../HomepageSection.styled.js'
 import RestaurantCard from '../RestaurantCard/RestaurantCard.js'
 
 export default function RestaurantCardGrid(props) {
-
+  
   console.log(props)
 
   return (

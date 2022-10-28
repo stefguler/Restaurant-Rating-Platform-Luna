@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ListContainer, RestaurantListFilter } from '../RestaurantOverviewSection.styled'
+import { ListContainer, RestaurantListFilter } from '../RestaurantsOverviewSection.styled'
 
 export default function ListFilterContainer(props) {
 

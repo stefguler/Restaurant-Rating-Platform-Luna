@@ -10,6 +10,7 @@ flex-direction: column;
 align-items: center;
 gap:  1rem;
 width: 271px;
+margin: 0 auto;
 cursor: pointer;
 `;
 
@@ -54,6 +55,5 @@ color: #4C4C4C;
 
 export const RestaurantAvatar= styled.img`
     width: 100%;
-    height: 50%;
 `
 

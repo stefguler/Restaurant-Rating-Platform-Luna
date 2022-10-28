@@ -33,7 +33,7 @@ function Footer() {
       </FooterUpperContainerDive>
       <FooterDownDiv>
         <FooterDownLeftSideDiv>
-          <p> &#169; Coppyright Luna 2018</p>
+          <p> &#169; Copyright Luna 2018</p>
         </FooterDownLeftSideDiv>
       </FooterDownDiv>
     </FooterMainContainerDiv>
