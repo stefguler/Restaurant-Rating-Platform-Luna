@@ -5,45 +5,84 @@ import {
 } from './ReviewCard.styled'
 import { IconContext } from "react-icons";
 import { GoThumbsup } from 'react-icons/go';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export default function ReviewCard(props) {
 
-    const reviewCard = props.review;
-    const style = props.style;
+    const reviewCard = props.review.data;
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MzA3OTc0LCJpYXQiOjE2NjY4NzU5NzQsImp0aSI6IjY3NjY4MmNjYTc0NTQzMDliNDg4ZjQ4ZGE1N2YyYjRiIiwidXNlcl9pZCI6MX0.knkJJppK0jmWSjd5DEFxDHGyhMZHBQksb_qTfhBHbC4"
+    const [user, setUser] = useState();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+
+        if (token === undefined) navigate('/')
+    
+        const url = `http://localhost:8001/backend/api/users/${reviewCard.user}/`
+        const config = {
+          method: "GET",
+          headers: new Headers({
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          }),
+    
+        }
+    
+        fetch(url, config).then(
+          response => response.json())
+          .then(
+            data => setUser(data))
+    
+      }, [token]);
+    
+       let randomReviewCount = Math.floor(Math.random() * 99);
+
+      const commentsList = [
+        {
+          created: "01.01.2022 11:40",
+          user: "Hill Bill",
+          content: "Beyond the rating!",
+        },
+        {
+          created: "01.01.2022 11:45",
+          user: "Roger Moore",
+          content: "Ayayayay",
+        },
+      ]
 
     return (
         <>
             <ReviewCardContainer>
                 <CardHeader />
                 <UserSection>
-                    <UserAvatar src={reviewCard.user.avatar}></UserAvatar>
+                    <UserAvatar src={"no_picture_found.png"}></UserAvatar>
                     <UserSectionText>
-                        <UserName>{reviewCard.user.name}</UserName>
-                        <ReviewsAmount>{reviewCard.user.reviews} Reviews in total</ReviewsAmount>
+                        <UserName>{user?.first_name} {user?.last_name}</UserName>
+                        <ReviewsAmount>{randomReviewCount} Reviews in total</ReviewsAmount>
                     </UserSectionText>
                 </UserSection>
 
                 <ReviewSection>
-                    <ReviewTitle>{reviewCard.review.title}</ReviewTitle>
-                    <ReviewDescription>{reviewCard.review.description}</ReviewDescription>
+                    <ReviewTitle>{"{title missing in review api}"}</ReviewTitle>
+                    <ReviewDescription>{reviewCard?.text_content}</ReviewDescription>
                 </ReviewSection>
                 <ReviewActions>
                     <LikesSection>
                         <IconContext.Provider value={{ color: "white", size: "1.5rem" }}>
                             <GoThumbsup />
                         </IconContext.Provider>
-                        Like {reviewCard.review.likes}
+                        Like {reviewCard.liked_by_user?.lengt}
                     </LikesSection>
                     <CommentsSection>
-                        Comment {reviewCard.review.comments}
+                        Comment {randomReviewCount}
                     </CommentsSection>
                 </ReviewActions>
                 <LatestCommentSection>
                     <span>Latest comments</span>
                     {
-                        reviewCard.commentsList.map((comment, keyx) => {
+                        commentsList.map((comment, keyx) => {
                             return <>
-                                {console.log(comment)}
                                 <CommentContainer>
                                     <CommentAuthor key={keyx}>{comment.user}</CommentAuthor>
                                     <div key={keyx}>{comment.content}</div>

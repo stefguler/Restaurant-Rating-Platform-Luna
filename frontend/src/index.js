@@ -30,7 +30,7 @@ root.render(
       <Routes>
         <Route path="/" element={<HomepageSection />} />
         <Route path="/home" element={<HomepageSection />} />
-        <Route path="/restaurants" element={<RestaurantsOverviewSection />} />
+        <Route path="/search" element={<RestaurantsOverviewSection />} />
         <Route path="/restaurant/" element={<RestaurantPageSection />} />
         <Route path="/createreview" element={<CreateReviewSection />} />
         <Route path="/login" element={<LoginView />} />

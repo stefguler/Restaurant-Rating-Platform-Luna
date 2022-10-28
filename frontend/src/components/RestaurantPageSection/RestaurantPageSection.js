@@ -3,7 +3,6 @@ import Header from "../Header-Footer/Header";
 import ReviewCard from "./ReviewCard/ReviewCard.js"
 import StarsRating from 'stars-rating'
 import { useSelector } from "react-redux";
-import { useState } from "react";
 import { IconContext } from "react-icons";
 import { CiLocationOn } from 'react-icons/ci';
 import { BsPhone, BsLaptop, BsClock, BsCashCoin } from 'react-icons/bs';
@@ -12,143 +11,89 @@ import {
   MapImg, StreetContainer, PhoneContainer, HomepageContainer, BottomContainer, LeftPartContainer, ReviewSection, FilterSection, ReviewList, RightPartContainer,
   OpeningsContainer, PricelevelContainer, ButtonsContainer, TopContainer, RestaurantAvatarOverlay
 } from './RestaurantPageSection.styled'
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function CreateReview(props) {
-  //const restaurant = props.restaurant
+export default function RestaurantPageSection() {
+
+  const restaurant = useSelector(state => state.restaurant.currentRestaurant)
   //const [restaurant, setRestaurants] = useState()
   //const token = useSelector(state => state.auth.accessToken)
   //const user = useSelector(state => state.auth.currentUser)
-  //const [reviews, setReview] = useState(undefined)
+  const [reviews, setReviews] = useState()
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MzA3OTc0LCJpYXQiOjE2NjY4NzU5NzQsImp0aSI6IjY3NjY4MmNjYTc0NTQzMDliNDg4ZjQ4ZGE1N2YyYjRiIiwidXNlcl9pZCI6MX0.knkJJppK0jmWSjd5DEFxDHGyhMZHBQksb_qTfhBHbC4"
+  const navigate = useNavigate()
+  const [filterInput, setFilterInput] = useState()
 
-  //useEffect(() => {
+  useEffect(() => {
 
-  // if (token === undefined) navigate('/')
+    if (token === undefined) navigate('/')
 
-  /*
-   const url = "https://motion.propulsion-home.ch/backend/api/users/?limit=250&offset=1000"
-   const config = {
-       method: "GET",
-       headers: new Headers({
-           "Content-Type": "application/json",
-           "Authorization": `Bearer ${token}`
-       }),
-       // body: JSON.stringify(jsObject)
-   }
- 
-   fetch(url, config).then(
-       response => response.json())
-       // .then(
-       //     data => setNotificationCount(data.count))
-       .then(
-           data => setRestaurants(data.results))
 
-}, [token]); */
+    const url = `http://localhost:8001/backend/api/reviews/restaurant/${restaurant.id}`
+    const config = {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }),
 
-  const restaurant = {
-    avatar: 'restaurant_sample_big.png',
-    title: "Ramen Ichiraku",
-    details: "Ramen & Noodlesoups",
-    adress: "Konoha Valley 69",
-    phone: "+41 44 322 11 22",
-    map: "map_sample.png",
-    homepage: "ichiraku-ramen.ch",
-    rating: 5,
-    reviews: 69,
-    openings: "Monday-Friday, 9:00 am - 8:00 pm",
-    pricelevel: 3,
+    }
+
+    fetch(url, config).then(
+      response => response.json())
+      .then(
+        data => setReviews(data))
+
+  }, [token]);
+
+  let randomRating = Math.round(Math.floor(Math.random() * 5) * 2) / 2;
+  let randomReviewCount = Math.floor(Math.random() * 99);
+  let pricelevel = '';
+  {
+    for (let i = 0; i < restaurant.price_level; i++) {
+      pricelevel = pricelevel + '$';
+    }
+  }
+
+  const handleNavigateToCreateReview = () => {
+    navigate("/createreview")
+  }
+
+  const handleChangeFilterInput = (e) => {
+    setFilterInput(e.target.value)
   }
 
 
-  const review1 = {
-    user: {
-      avatar: "star.svg",
-      name: "Laurent H.",
-      reviews: 1,
-    },
-    review: {
-      created: "01.01.2022 07:45",
-      title: "shitty stay!",
-      description:
-        "Ugh. Dont waste your time. Pizza dough good, thin crust but ingredients so so. Side of mixed vegetables very oily and mainly bell..",
-      likes: 44,
-      comments: 12,
-      rating: 4,
-    },
-    commentsList: [
-      {
-        created: "01.01.2022 13:45",
-        user: "Colin Wirz",
-        content: "Actually you have no taste!",
-      },
-      {
-        created: "01.01.2022 14:35",
-        user: "Laurent Meyer",
-        content: "Sorry bro!",
-      },
-    ],
-  };
-
-  const review2 = {
-    user: {
-      avatar: "star.svg",
-      name: "Marc W.",
-      reviews: 12,
-    },
-    review: {
-      created: "01.01.2022 08:00",
-      title: "Nice Dinner!",
-      description: "What a delicios dinner we were served there, nice!",
-      likes: 467,
-      comments: 233,
-    },
-    commentsList: [
-      {
-        created: "01.01.2022 11:45",
-        user: "Fritz Weber",
-        content: "I fully agree on this!",
-      },
-      {
-        created: "01.01.2022 12:00",
-        user: "Marcel Pain",
-        content: "Smack that!",
-      },
-    ],
-  };
-
-  const review3 = {
-    user: {
-      avatar: "star.svg",
-      name: "Fritz Wayne",
-      reviews: 34,
-    },
-    review: {
-      created: "01.01.2022 08:30",
-      title: "Noice one!",
-      description: "Bibeli babeli bubbiiiiii, lets talk!",
-      likes: 1,
-      comments: 69,
-    },
-    commentsList: [
-      {
-        created: "01.01.2022 11:40",
-        user: "Hill Bill",
-        content: "Beyond the rating!",
-      },
-      {
-        created: "01.01.2022 11:45",
-        user: "Roger Moore",
-        content: "Ayayayay",
-      },
-    ],
-  };
-
-  const reviews = [review1, review2, review3]
-
-  let pricelevel = '';
-  {
-    for (let i = 0; i < restaurant.pricelevel; i++) {
-      pricelevel = pricelevel + '$';
+  const handleFilterRequest = () => {
+    const url = `http://localhost:8001/backend/api/search/}`
+    const searchData = {
+      type: "reviews",
+      text_content: filterInput,
     }
+    console.log(searchData)
+    const searchBody = JSON.stringify(searchData)
+    console.log(searchBody)
+    const config = {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }),
+      body: searchBody
+    }
+    fetch(url, config)
+      .then(result => {
+        if (!result.ok) {
+          console.log(result.text())
+        } else {
+          result.json().then(data => {
+            console.log(data)
+            setReviews(data)
+          })
+        }
+      }
+      )
   }
 
   return (
@@ -156,31 +101,31 @@ export default function CreateReview(props) {
       <Header></Header>
       <RestaurantPageContainer>
         <RestaurantAvatarOverlay>
-          <RestaurantAvatar src={restaurant.avatar}></RestaurantAvatar>
+          <RestaurantAvatar src={'no_picture_found.png'}></RestaurantAvatar>
         </RestaurantAvatarOverlay>
         <TopContainer>
           <RestaurantDetailsContainer>
-            <RestaurantTitle>{restaurant.title}</RestaurantTitle>
-            <RestaurantInfo>{restaurant.details}</RestaurantInfo>
+            <RestaurantTitle>{restaurant.name}</RestaurantTitle>
+            <RestaurantInfo>{restaurant.category}</RestaurantInfo>
             <RatingContainer>
               <StarsRating
                 count={5}
-                value={restaurant.rating}
+                value={randomRating}
                 edit={false}
                 size={40}
                 color2={'#ffd700'}
                 color1={'#EBEBEB'}
               />
-              <span>{restaurant.reviews} reviews</span>
+              <span>{randomReviewCount} reviews</span>
             </RatingContainer>
           </RestaurantDetailsContainer>
           <RestaurantDetailsPopOutContainer>
-            <MapImg src={restaurant.map} alt='location in map of restaurant'></MapImg>
+            <MapImg src={"map_sample.png"} alt='location in map of restaurant'></MapImg>
             <StreetContainer>
               <IconContext.Provider value={{ color: "#4C4C4C", size: "2rem" }}>
                 <CiLocationOn />
               </IconContext.Provider>
-              <span>{restaurant.adress}</span>
+              <span>{restaurant.street}, {restaurant.city}</span>
             </StreetContainer>
             <PhoneContainer>
               <IconContext.Provider value={{ color: "#4C4C4C", size: "2rem" }}>
@@ -192,7 +137,7 @@ export default function CreateReview(props) {
               <IconContext.Provider value={{ color: "#4C4C4C", size: "2rem" }}>
                 <BsLaptop />
               </IconContext.Provider>
-              <span>{restaurant.homepage}</span>
+              <span>{restaurant.website}</span>
             </HomepageContainer>
           </RestaurantDetailsPopOutContainer>
         </TopContainer>
@@ -200,13 +145,15 @@ export default function CreateReview(props) {
           <LeftPartContainer>
             <ReviewSection>
               <FilterSection>
-                <input input='text' placeholder="Filter list..."></input>
-                <button>Filter</button>
+                <input input='text' placeholder="Filter list..." onChange={(e) => handleChangeFilterInput(e)}></input>
+                <button onClick={handleFilterRequest}>Filter</button>
               </FilterSection>
               <ReviewList>
-                {reviews.map((review, idx) => {
-                  return <ReviewCard key={idx} review={review} />
-                })
+                {
+                  reviews !== undefined ?
+                    reviews.map((review, idx) => {
+                      return <ReviewCard key={idx} review={review} />
+                    }) : null
                 }
               </ReviewList>
             </ReviewSection>
@@ -216,7 +163,7 @@ export default function CreateReview(props) {
               <IconContext.Provider value={{ color: "#4C4C4C", size: "2rem" }}>
                 <BsClock />
               </IconContext.Provider>
-              <span>{restaurant.openings}</span>
+              <span>{restaurant.opening_hours}</span>
             </OpeningsContainer>
             <PricelevelContainer>
               <IconContext.Provider value={{ color: "#4C4C4C", size: "2rem" }}>
@@ -225,7 +172,7 @@ export default function CreateReview(props) {
               <span>Pricelevel: {pricelevel}</span>
             </PricelevelContainer>
             <ButtonsContainer>
-              <button>write review</button>
+              <button onClick={handleNavigateToCreateReview}>write review</button>
               <button>edit data</button>
             </ButtonsContainer>
           </RightPartContainer>

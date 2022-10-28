@@ -7,10 +7,9 @@ background: white;
 box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 20px 40px rgba(0, 0, 0, 0.15);
 border-radius: 0.2rem;
 flex-direction: column;
-align-items: center;
+max-height: 410px;
 width: 100%;
 margin: 0 auto;
-cursor: pointer;
 `;
 
 export const HeaderSection = styled.div`
@@ -34,6 +33,7 @@ export const UserSectionText = styled.div`
 `
 export const UserAvatar = styled.img`
     width: 75px;
+    border: 2px dashed #b3b2b2;
 
 `
 export const UserName = styled.div`
@@ -53,8 +53,7 @@ export const ReviewDate = styled.span`
     padding: 0.5rem 1rem;
     font-size: 16px;
     width: 14rem;
-    text-align: end;   
-    align-self: flex-start;
+    text-align: end;
 `
 
 export const ReviewSection = styled.div`
@@ -64,13 +63,15 @@ export const ReviewSection = styled.div`
 `
 
 export const ReviewDescription = styled.div`
+    display: flex;
     font-size: 16px;
+    align-self: flex-start;
+    padding-left: 1rem;
 `
 
 export const ReviewActions = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
   width: 100%;
   padding: 1rem;
 

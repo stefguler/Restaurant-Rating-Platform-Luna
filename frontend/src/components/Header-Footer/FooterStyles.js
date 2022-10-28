@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FooterMainContainerDiv = styled.div`
+export const FooterMainContainerDiv = styled.footer`
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -63,16 +63,14 @@ export const FooterDownLeftSideDiv = styled.div`
   width: 100%;
   color: #646363;
   height: 36.84px;
+  justify-content: center;
 
   position: relative;
 
-  p {
+  small {
     font-size: 12px;
     width: 100%;
     margin-left: 15px;
-    vertical-align: top;
-    /* position: relative; */
-    /* top: -5px; */
   }
 `;
 

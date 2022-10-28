@@ -4,8 +4,9 @@ import { CreateReviewContainer, RatingContainer, AvatarOverlay, RestaurantAvatar
 import StarsRating from 'stars-rating'
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function CreateReview(props) {
+export default function CreateReview() {
   //const restaurant = props.restaurant
 
   //const [restaurant, setRestaurants] = useState([])
@@ -13,82 +14,77 @@ export default function CreateReview(props) {
   //const user = useSelector(state => state.auth.currentUser)
   const [rating, setRating] = useState();
   const [ratingDescription, setRatingDescription] = useState();
+  const restaurant = useSelector(state => state.restaurant.currentRestaurant)
+  const navigate = useNavigate();
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MzA3OTc0LCJpYXQiOjE2NjY4NzU5NzQsImp0aSI6IjY3NjY4MmNjYTc0NTQzMDliNDg4ZjQ4ZGE1N2YyYjRiIiwidXNlcl9pZCI6MX0.knkJJppK0jmWSjd5DEFxDHGyhMZHBQksb_qTfhBHbC4"
 
 
-  /*FETCH RESTAURANTS INIT
-
-   //useEffect(() => {
-
-       // if (token === undefined) navigate('/')
-
-      
-       const url = "https://motion.propulsion-home.ch/backend/api/users/?limit=250&offset=1000"
-       const config = {
-           method: "GET",
-           headers: new Headers({
-               "Content-Type": "application/json",
-               "Authorization": `Bearer ${token}`
-           }),
-           // body: JSON.stringify(jsObject)
-       }
-   
-       fetch(url, config).then(
-           response => response.json())
-           // .then(
-           //     data => setNotificationCount(data.count))
-           .then(
-               data => setRestaurants(data.results))
-
-   }, [token]); */
-
-  const restaurant = {
-    avatar: 'restaurant_sample_banner.png',
-    title: "Ramen Ichiraku",
-    details: "Ramen & Noodlesoups",
-    rating: 5,
-    reviews: 69,
-  }
-
-  const ratingChanged = (newRating) => {
-    console.log(newRating)
+   const ratingChanged = (newRating) => {
     setRating(newRating)
-    console.log('newRating:', rating)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Submit clicked')
-    console.log('value Rating:', rating)
-    console.log('value Description:', ratingDescription)
+
+  
+      const url = `http://localhost:8001/backend/api/reviews/new/${restaurant.id}`
+      const reviewData = {
+        rating: rating,
+        text_content: ratingDescription,
+      }
+      console.log(reviewData)
+      const reviewBody = JSON.stringify(reviewData)
+      console.log(reviewBody)
+      const config = {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }),
+        body: reviewBody
+      }
+      fetch(url, config)
+        .then(result => {
+          if (!result.ok) {
+            console.log(result.text())
+          } else {
+            result.json().then(data => {
+              console.log(data)
+            })
+          }
+        }
+        )
+        navigate('/restaurant')
+    }
+      
+   const changeDescription = (e) => {
+    setRatingDescription(e.target.value)
   }
 
-  const changeDescription = (e) => {
-    setRatingDescription(e.target.value)
-    console.log('newRatingDescription:', ratingDescription)
-  }
+  let randomRating = Math.round( Math.floor(Math.random() * 5)*2)/2;
+  let randomReviewCount = Math.floor(Math.random() * 99);
 
 
   return (
     <>
       <Header></Header>
       <CreateReviewContainer>
-        {/* <RestaurantBannerContainer> */}
         <AvatarOverlay>
-          <RestaurantAvatar src={restaurant.avatar} alt='restaurant avatar'></RestaurantAvatar>
+          <RestaurantAvatar src='no_picture_found.png' alt='restaurant avatar'></RestaurantAvatar>
         </AvatarOverlay>
         <RestaurantDetailsContainer>
-          <RestaurantTitle>{restaurant.title}</RestaurantTitle>
-          <RestaurantInfo>{restaurant.details}</RestaurantInfo>
+          <RestaurantTitle>{restaurant.name}</RestaurantTitle>
+          <RestaurantInfo>{restaurant.category}</RestaurantInfo>
           <RatingContainer>
             <StarsRating
               count={5}
-              value={restaurant.rating}
+              value={randomRating}
               edit={false}
               size={40}
               color2={'#ffd700'}
               color1={'#EBEBEB'}
             />
-            <ReviewsInfo>{restaurant.reviews} reviews</ReviewsInfo>
+            <ReviewsInfo>{randomReviewCount} reviews</ReviewsInfo>
           </RatingContainer>
         </RestaurantDetailsContainer>
         {/* </RestaurantBannerContainer> */}
