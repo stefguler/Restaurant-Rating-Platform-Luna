@@ -7,9 +7,9 @@ export default function ReviewCardGrid(props) {
     <>
       <RestaurantCardsGrid>
         {
-          props.length > 0 ? props.data.map(review => {
+          props.length > 0 && props !== undefined ? props.data.map(review => {
             return <ReviewCard review={review}></ReviewCard>
-          }) : <ReviewCard review={props}></ReviewCard>
+          }) : props ==! undefined ? <ReviewCard review={props}></ReviewCard> : null
         }
       </RestaurantCardsGrid>
     </>

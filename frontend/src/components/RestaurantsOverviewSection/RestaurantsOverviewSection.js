@@ -28,7 +28,7 @@ export default function RestaurantOverview() {
         if (token === undefined) navigate('/')
 
         // fetch restaurants
-        const urlRestaurant = "http://localhost:8001/backend/api/restaurants/"
+        const urlRestaurant = "https://team1.propulsion-learn.ch/backend/api/restaurants/"
         const configRestaurant = {
             method: "GET",
             headers: new Headers({
@@ -42,7 +42,7 @@ export default function RestaurantOverview() {
                 data => setRestaurants(data))
 
         // fetch reviews
-        const urlReviews = "http://localhost:8001/backend/api/reviews/1/"
+        const urlReviews = "https://team1.propulsion-learn.ch/backend/api/reviews/1/"
         const configReviews = {
             method: "GET",
             headers: new Headers({
@@ -56,7 +56,7 @@ export default function RestaurantOverview() {
                 data => setReviews(data))
 
         // fetch users
-        const urlUsers = "http://localhost:8001/backend/api/users/list/"
+        const urlUsers = "https://team1.propulsion-learn.ch/backend/api/users/list/"
         const configUsers = {
             method: "GET",
             headers: new Headers({
