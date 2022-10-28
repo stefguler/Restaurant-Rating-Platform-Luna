@@ -11,4 +11,4 @@ class Review(models.Model):
     rating = models.IntegerField()
     user = models.ForeignKey(to=User, on_delete=models.PROTECT, related_name='user_reviews')
     restaurant = models.ForeignKey(to=Restaurant, on_delete=models.PROTECT, related_name='restaurant_reviews')
-    liked_by_user = models.ManyToManyField(to=User, blank=True, related_name='liked_reviews')
+    liked_by_user = models.ManyToManyField(to=User, related_name='liked_reviews', blank=True)

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt import views
-from review.views import BestRatedRestaurantsView, SearchView, CreateReviewView, ReviewsForRestaurantView, ReviewsByUserView, ReviewView, LikeView, LikedReviewsView, CommentedReviewsView
+from review.views import BestRatedRestaurantsView, SearchView, CreateReviewView, ReviewsForRestaurantView, ReviewsByUserView, ReviewView, LikeView, LikedReviewsView
 
 urlpatterns = [
     path('home/', BestRatedRestaurantsView.as_view()),
@@ -11,6 +11,5 @@ urlpatterns = [
     path('reviews/user/<int:user_id>/', ReviewsByUserView.as_view()),
     path('reviews/<int:review_id>/', ReviewView.as_view()),
     path('reviews/like/<int:review_id>/', LikeView.as_view()),
-    path('reviews/likes/', LikedReviewsView.as_view()),
-    path('reviews/comments/', CommentedReviewsView.as_view())
+    path('reviews/likes/', LikedReviewsView.as_view())
 ]
