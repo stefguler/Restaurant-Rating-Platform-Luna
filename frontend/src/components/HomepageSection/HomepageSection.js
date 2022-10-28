@@ -44,7 +44,7 @@ export default function Homepage() {
            .then(
                data => setUsers(data.results))
 
-   }, [token])
+   }
 
   const restaurantObject1 = {
     title: "restaurant 1",
