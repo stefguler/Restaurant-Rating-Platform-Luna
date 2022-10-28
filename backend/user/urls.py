@@ -19,13 +19,11 @@ urlpatterns = [
     path('forgotpw', ForgotPasswordAPIView.as_view()),
     path('resetpw', ResetAPIView.as_view()),
 
-
-    #
-    # path('docs/', APIView.as_view()),
-    # # path('registration/', RegistrationView.as_view()),
-    # # path('registration/validate/', RegistrationValidateView.as_view()),
-    # path('me/', MeView.as_view()),
-    # path('users/list/', UsersListView.as_view()),
-    # path('users/search=<str:search_string>/', UsersSearchView.as_view()),
-    # path('users/<int:user_id>/', UsersIDView.as_view())
+    path('docs/', APIView.as_view()),
+    # path('registration/', RegistrationView.as_view()),
+    # path('registration/validate/', RegistrationValidateView.as_view()),
+    path('me/', MeView.as_view()),
+    path('users/list/', UsersListView.as_view()),
+    path('users/search=<str:search_string>/', UsersSearchView.as_view()),
+    path('users/<int:user_id>/', UsersIDView.as_view())
 ]
