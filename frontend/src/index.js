@@ -20,6 +20,7 @@ import RegistrationView from "./components/LoginSection/RegistrationView";
 
 import CreateReviewSection from "./components/CreateReviewSection";
 import RestaurantPageSection from "./components/RestaurantPageSection";
+import UserProfileSection from "./components/UserProfileSection/UserProfileSection";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -36,6 +37,7 @@ root.render(
         <Route path="/validation" element={<ValidationView />} />
         <Route path="/registrationMessage" element={<RegistrationMessageView />} />
         <Route path="/registration" element={<RegistrationView />} />
+        <Route path="/profile" element={<UserProfileSection />} />
 
 
         {/* TestSignUp is only temporary */}
