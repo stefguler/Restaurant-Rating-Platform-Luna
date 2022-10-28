@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
-    'corsheaders',
     'user',
     'restaurant',
     'review',
@@ -49,7 +48,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -152,9 +150,14 @@ REST_FRAMEWORK = {
 }
 '''
 REST_FRAMEWORK = {
+    # 'EXCEPTION_HANDLER': 'user.exceptions.status_code_handler',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        # 'rest_framework.permissions.IsAuthenticated',
     ]
 }
 SIMPLE_JWT = {
@@ -164,5 +167,19 @@ SIMPLE_JWT = {
 
 CSRF_TRUSTED_ORIGINS = ['https://team1.propulsion-learn.ch', 'http://46.101.187.151']
 
-CORS_ALLOWED_ORIGINS = ["https://team1.propulsion-learn.ch", "http://localhost:3000", "http://127.0.0.1:8001"]
-#CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
+# For Cookies CORS_ALLOW_CREDENTIALS (refresh token)
+CORS_ALLOW_CREDENTIALS = True
+
+EMAIL_HOST = "172.21.15.20"
+EMAIL_PORT = 1025
+
+CORS_ALLOWED_ORIGINS = [
+'http://46.101.187.151',
+"https://team1.propulsion-learn.ch",
+"http://localhost:8080",
+"http://localhost:3000",
+'http://46.101.187.151'
+]
+
+

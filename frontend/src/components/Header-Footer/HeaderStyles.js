@@ -24,7 +24,6 @@ export const HeaderLunaParagraphContainerDiv = styled.div`
     width: 144px;
     height: 45px;
     padding-left: 1rem;
-    
   }
 `;
 
@@ -50,18 +49,18 @@ export const HeaderHSPButtonsHover = styled.button`
   &::after {
     display: block;
     position: absolute;
-    width: 25px;
-    margin-top: 6px;
-    margin-left: 5px;
-    height: 2px;
+    width: 50px;
+    margin-top: 17px;
+    border-radius: 10px;
+    height: 4px;
     content: "";
     background-color: #e47d31;
   }
   &:nth-child(1)::after {
-    margin-left: 5px;
+    margin-left: 3px;
   }
   &:nth-child(2)::after {
-    margin-left: 8px;
+    margin-left: 7px;
   }
   &:nth-child(3)::after {
     margin-left: 5px;
@@ -101,7 +100,6 @@ export const HeaderSignButtonHover = styled.button`
   height: 30px;
   margin: 0.5px;
   height: 41px;
-
 `;
 
 export const HeaderLoginButton = styled.button`
