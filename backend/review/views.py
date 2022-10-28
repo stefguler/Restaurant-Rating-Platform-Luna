@@ -9,61 +9,42 @@ from user.serializers import UserSerializer
 from restaurant.models import Restaurant
 from restaurant.serializers import RestaurantSerializer
 User = get_user_model()
+from operator import itemgetter
 
 
 class BestRatedRestaurantsView(GenericAPIView):
     def get(self, request):
         all_reviews = Review.objects.all()
-        serializer = ReviewSerializer(all_reviews, many=True)
-        all_reviews_list = list()
-
-        for counter in range(0, len(serializer.data)):
-            all_reviews_list.append(serializer.data[counter])
-
-        all_rated_restaurants = list()
-        for counter in range(0, len(serializer.data)):
-            already_in_list = False
-            for sub_counter in range(0, len(all_rated_restaurants)):
-                if serializer.data[counter]['restaurant'] == all_rated_restaurants[sub_counter]:
-                    already_in_list = True
-                    break
-            if not already_in_list:
-                all_rated_restaurants.append(serializer.data[counter]['restaurant'])
-
-        reviews_by_restaurant = {}
-        for counter in range(0, len(all_rated_restaurants)):
-            reviews_by_restaurant[all_rated_restaurants[counter]] = list()
-
-        for counter in range(0, len(all_reviews_list)):
-            reviews_by_restaurant[all_reviews_list[counter]['restaurant']].append(all_reviews_list[counter]['rating'])
-
-        ratings_by_restaurant = {}
-        for counter in range(0, len(all_rated_restaurants)):
-            ratings_by_restaurant[all_rated_restaurants[counter]] = 0
-
-        for counter in range(0, len(all_rated_restaurants)):
-            added_counter = 0
-            for sub_counter in range(0, len(all_reviews_list)):
-                if all_rated_restaurants[counter] == all_reviews_list[sub_counter]['restaurant']:
-                    ratings_by_restaurant[all_rated_restaurants[counter]] += all_reviews_list[sub_counter]['rating']
-                    added_counter += 1
-            ratings_by_restaurant[all_rated_restaurants[counter]] /= added_counter
-
-        sorted_ratings_by_restaurant = dict(sorted(ratings_by_restaurant.items(), key=lambda item: item[1], reverse=True))
+        review_serializer = ReviewSerializer(all_reviews, many=True)
 
         all_restaurants = Restaurant.objects.all()
-        restaurant_serializer = ReviewSerializer(all_restaurants, many=True)
-        best_rated_restaurants = list()
-        added_counter = 0
-        for single_restaurant in sorted_ratings_by_restaurant.keys():
-            for sub_counter in range(0, len(restaurant_serializer.data)):
-                if single_restaurant == restaurant_serializer.data['id']:
-                    best_rated_restaurants.append(restaurant_serializer.data)
+        restaurant_serializer = RestaurantSerializer(all_restaurants, many=True)
+
+        ratings_by_restaurant = list()
+        for counter in range(0, len(restaurant_serializer.data)):
+            ratings_by_restaurant.append([restaurant_serializer.data[counter]['id'], 0])
+
+        for counter in range(0, len(restaurant_serializer.data)):
+            added_counter = 0
+            for sub_counter in range(0, len(review_serializer.data)):
+                if restaurant_serializer.data[counter]['id'] == review_serializer.data[sub_counter]['restaurant']:
+                    ratings_by_restaurant[counter][1] += review_serializer.data[sub_counter]['rating']
                     added_counter += 1
-                if added_counter == 4:
-                    break
-            if added_counter == 4:
+            if added_counter > 0:
+                ratings_by_restaurant[counter][1] /= added_counter
+
+        ratings_by_restaurant.sort(key=itemgetter(1), reverse=True)
+
+        best_rated_restaurants = list()
+        added_restaurants = 0
+        for counter in range(0, len(ratings_by_restaurant)):
+            if added_restaurants == 4:
                 break
+            for sub_counter in range(0, len(restaurant_serializer.data)):
+                if ratings_by_restaurant[counter][0] == restaurant_serializer.data[sub_counter]['id']:
+                    best_rated_restaurants.append(restaurant_serializer.data[sub_counter])
+                    added_restaurants += 1
+                    break
 
         return Response(best_rated_restaurants)
 
@@ -180,7 +161,3 @@ class LikedReviewsView(GenericAPIView):
                     break
 
         return Response(liked_reviews)
-
-
-class CommentedReviewsView(GenericAPIView):
-    pass

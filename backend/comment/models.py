@@ -10,4 +10,4 @@ class Comment(models.Model):
     text_content = models.CharField(max_length=250)
     user = models.ForeignKey(to=User, on_delete=models.PROTECT, related_name='comments')
     review = models.ForeignKey(to=Review, on_delete=models.PROTECT, related_name='comment')
-    liked_by_user = models.ForeignKey(to=User, on_delete=models.PROTECT, related_name='liked_comments')
+    liked_by_user = models.ForeignKey(to=User, on_delete=models.PROTECT, related_name='liked_comments', blank=True, null=True)
