@@ -31,7 +31,7 @@ export default function CategoryDropdown() {
              data => setCategories(data.results))
  }, [token]); */
 
-  const categories = ['Alpha', 'Beta', 'Gamma', 'Delta', 'Epsilon', 'Zeta']
+  const categories = ['{API missing}']
 
   return (
     <>

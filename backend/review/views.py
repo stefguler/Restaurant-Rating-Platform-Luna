@@ -7,28 +7,79 @@ from rest_framework.permissions import IsAdminUser, IsAuthenticated, AllowAny
 from review.serializers import ReviewSerializer, CreateReviewSerializer
 from user.serializers import UserSerializer
 from restaurant.models import Restaurant
+from restaurant.serializers import RestaurantSerializer
 User = get_user_model()
+from operator import itemgetter
+
+
+class BestRatedRestaurantsView(GenericAPIView):
+    def get(self, request):
+        all_reviews = Review.objects.all()
+        review_serializer = ReviewSerializer(all_reviews, many=True)
+
+        all_restaurants = Restaurant.objects.all()
+        restaurant_serializer = RestaurantSerializer(all_restaurants, many=True)
+
+        ratings_by_restaurant = list()
+        for counter in range(0, len(restaurant_serializer.data)):
+            ratings_by_restaurant.append([restaurant_serializer.data[counter]['id'], 0])
+
+        for counter in range(0, len(restaurant_serializer.data)):
+            added_counter = 0
+            for sub_counter in range(0, len(review_serializer.data)):
+                if restaurant_serializer.data[counter]['id'] == review_serializer.data[sub_counter]['restaurant']:
+                    ratings_by_restaurant[counter][1] += review_serializer.data[sub_counter]['rating']
+                    added_counter += 1
+            if added_counter > 0:
+                ratings_by_restaurant[counter][1] /= added_counter
+
+        ratings_by_restaurant.sort(key=itemgetter(1), reverse=True)
+
+        best_rated_restaurants = list()
+        added_restaurants = 0
+        for counter in range(0, len(ratings_by_restaurant)):
+            if added_restaurants == 4:
+                break
+            for sub_counter in range(0, len(restaurant_serializer.data)):
+                if ratings_by_restaurant[counter][0] == restaurant_serializer.data[sub_counter]['id']:
+                    best_rated_restaurants.append(restaurant_serializer.data[sub_counter])
+                    added_restaurants += 1
+                    break
+
+        return Response(best_rated_restaurants)
+
+
+class SearchView(GenericAPIView):
+    def get(self, request):
+        if request.data['type'] == 'restaurants':
+            restaurants = Restaurant.objects.filter(name__icontains=request.data['search_string'])
+            serializer = RestaurantSerializer(restaurants, many=True)
+
+            return Response(serializer.data)
+        elif request.data['type'] == 'reviews':
+            reviews = Review.objects.filter(text_content__icontains=request.data['search_string'])
+            serializer = ReviewSerializer(reviews, many=True)
+
+            return Response(serializer.data)
+        elif request.data['type'] == 'users':
+            users = User.objects.filter(username__icontains=request.data['search_string'])
+            serializer = UserSerializer(users, many=True)
+
+            return Response(serializer.data)
+        return Response("Error.")
 
 
 class CreateReviewView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def post(self, request, *args, **kwargs):
         serializer = CreateReviewSerializer(data=request.data)
-        if serializer.is_valid():
-            # return Response("TEST")
-            # serializer.data['restaurant'] = self.kwargs['restaurant_id']
 
-        # if serializer.is_valid():
+        if serializer.is_valid():
             serializer.save(user=request.user, restaurant=Restaurant.objects.get(id=self.kwargs['restaurant_id']))
-            # serializer.data['restaurant'] = self.kwargs['restaurant_id']
 
         return Response(serializer.data)
 
 
 class ReviewsForRestaurantView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request, *args, **kwargs):
         all_reviews = Review.objects.all()
         serializer = ReviewSerializer(all_reviews, many=True)
@@ -42,8 +93,6 @@ class ReviewsForRestaurantView(GenericAPIView):
 
 
 class ReviewsByUserView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request, *args, **kwargs):
         all_reviews = Review.objects.all()
         serializer = ReviewSerializer(all_reviews, many=True)
@@ -57,8 +106,6 @@ class ReviewsByUserView(GenericAPIView):
 
 
 class ReviewView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def get(self, request, *args, **kwargs):
         specific_review = Review.objects.get(id=self.kwargs['review_id'])
         serializer = ReviewSerializer(specific_review, many=False)
@@ -102,8 +149,6 @@ class LikeView(GenericAPIView):
 
 
 class LikedReviewsView(GenericAPIView):
-    permission_classes = [AllowAny]
-
     def get(self, request):
         all_reviews = Review.objects.all()
         serializer = ReviewSerializer(all_reviews, many=True)
@@ -116,7 +161,3 @@ class LikedReviewsView(GenericAPIView):
                     break
 
         return Response(liked_reviews)
-
-
-class CommentedReviewsView(GenericAPIView):
-    pass

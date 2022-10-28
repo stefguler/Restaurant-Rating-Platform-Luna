@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
+<<<<<<< HEAD
 User = get_user_model()
 
 @admin.register(User)
@@ -27,3 +28,14 @@ class UserAdmin(UserAdmin):
     list_display = ('email', 'first_name', 'last_name', 'is_staff')
     ordering = ('email',)
 
+=======
+from django.contrib import admin
+
+
+User = get_user_model()
+
+
+
+
+admin.site.register(User, UserAdmin)
+>>>>>>> da0044003cb653d9ba02d00ec640f6a247830209

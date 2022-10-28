@@ -50,3 +50,10 @@ width: 340px;
       color: #979797;
     }
 `;
+
+export const ErrorContainer = styled.div`
+    color: #979797;
+    padding: 24px;
+    font-size: 18px;
+    font-weight: bold;
+`;

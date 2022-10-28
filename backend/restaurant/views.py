@@ -10,8 +10,6 @@ User = get_user_model()
 
 
 class AllRestaurantsView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request):
         all_restaurants = Restaurant.objects.all()
         serializer = RestaurantSerializer(all_restaurants, many=True)
@@ -19,8 +17,6 @@ class AllRestaurantsView(GenericAPIView):
 
 
 class CreateRestaurantView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def post(self, request):
         serializer = CreateRestaurantSerializer(data=request.data)
 
@@ -31,8 +27,6 @@ class CreateRestaurantView(GenericAPIView):
 
 
 class RestaurantsByCategoryView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request):
         all_restaurants = Restaurant.objects.all()
         serializer = RestaurantSerializer(all_restaurants, many=True)
@@ -46,8 +40,6 @@ class RestaurantsByCategoryView(GenericAPIView):
 
 
 class RestaurantsByUserView(GenericAPIView):
-    permission_classes = [IsAuthenticated, AllowAny]
-
     def get(self, request, *args, **kwargs):
         all_restaurants = Restaurant.objects.all()
         serializer = RestaurantSerializer(all_restaurants, many=True)
@@ -61,8 +53,6 @@ class RestaurantsByUserView(GenericAPIView):
 
 
 class RestaurantView(GenericAPIView):
-    permission_classes = [IsAuthenticated]
-
     def get(self, request, *args, **kwargs):
         specific_restaurant = Restaurant.objects.get(id=self.kwargs['restaurant_id'])
         serializer = RestaurantSerializer(specific_restaurant, many=False)
@@ -82,3 +72,24 @@ class RestaurantView(GenericAPIView):
         specific_restaurant.delete()
 
         return Response("Restaurant deleted.")
+
+
+class CategoryListView(GenericAPIView):
+    def get(self, request):
+        all_restaurants = Restaurant.objects.all()
+        serializer = RestaurantSerializer(all_restaurants, many=True)
+
+        all_categories = list()
+        for counter in range(0, len(serializer.data)):
+            all_categories.append(serializer.data[counter]['category'])
+
+        unique_categories = list()
+        for counter in range(0, len(all_categories)):
+            category_is_unique = True
+            for sub_counter in range(0, len(unique_categories)):
+                if all_categories[counter] == unique_categories[sub_counter]:
+                    category_is_unique = False
+            if category_is_unique:
+                unique_categories.append(all_categories[counter])
+
+        return Response(unique_categories)

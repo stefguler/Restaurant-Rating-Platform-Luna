@@ -27,7 +27,6 @@ RUN chmod +x ./scripts
 # create the environment inside the docker container
 RUN /opt/conda/bin/conda env create -f /backend/requirements.yml
 
-
 # we set the path were all the python pacakages are
 ENV PATH /opt/conda/envs/luna_project/bin:$PATH
 

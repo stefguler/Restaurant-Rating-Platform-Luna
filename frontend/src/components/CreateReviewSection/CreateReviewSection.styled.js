@@ -13,12 +13,13 @@ export const CreateReviewContainer = styled.div`
 export const AvatarOverlay = styled.div`
   background: rgba(0, 0, 0, 10);
   width: 100%;
-
+  display: flex;
+  justify-content: center;
 `
 
 export const RestaurantAvatar = styled.img`
-  width: 100%;
-  height: 204px;
+  width: 25%;
+  max-height: 204px;
   opacity: 70%;
 
 `

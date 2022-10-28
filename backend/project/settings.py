@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-wuk#$*w8oq(ky01l=_pfvo#-z@dmi_q)em8yn-=vprkx6n8^%^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
-ALLOWED_HOSTS = ['127.0.0.1', 'https://team1.propulsion-learn.ch/', '46.101.187.151', 'backend', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://team1.propulsion-learn.ch', '46.101.187.151', 'backend', 'localhost']
 
 # Application definition
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -139,7 +140,7 @@ print('media_root', MEDIA_ROOT)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'user.User'
-
+'''
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -148,8 +149,41 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ]
 }
-
+'''
+REST_FRAMEWORK = {
+    # 'EXCEPTION_HANDLER': 'user.exceptions.status_code_handler',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        # 'rest_framework.permissions.IsAuthenticated',
+    ]
+}
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=5),
 }
+
+CSRF_TRUSTED_ORIGINS = ['https://team1.propulsion-learn.ch', 'http://46.101.187.151']
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+# For Cookies CORS_ALLOW_CREDENTIALS (refresh token)
+CORS_ALLOW_CREDENTIALS = True
+
+EMAIL_HOST = "172.21.15.20"
+EMAIL_PORT = 1025
+
+CORS_ALLOWED_ORIGINS = [
+'http://46.101.187.151',
+"https://team1.propulsion-learn.ch",
+"http://localhost:8001",
+"http://localhost:3000",
+'http://46.101.187.151'
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+

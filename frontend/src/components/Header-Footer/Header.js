@@ -94,7 +94,7 @@ function Header() {
         )}
 
         {hoverSearchButtonState === true ||
-        location.pathname === "/restaurants" ? (
+        location.pathname === "/search" ? (
           <HeaderHSPButtonsHover
             // style={{
             //   fontWeight: boldText ? "bold" : "normal",
@@ -103,7 +103,7 @@ function Header() {
             //   setHoverSearchButtonState(true);
             // }}
             onClick={() => {
-              navigate("/restaurants");
+              navigate("/search");
               setHoverSearchButtonState(true);
             }}
             // onClick={handleBoldText}
@@ -166,10 +166,11 @@ function Header() {
         )}
 
         <HeaderSignLoginDiv>
-          {signupButtonState === true || location.pathname === "/Signup" ? (
+          {signupButtonState === true ||
+          location.pathname === "/registration" ? (
             <HeaderSignButtonHover
               onClick={() => {
-                navigate("/testRegister");
+                navigate("/registration");
                 setsignupButtonState(true);
               }}
               // onClick={handleBoldText}
@@ -198,8 +199,8 @@ function Header() {
           {loginButtonState === true || location.pathname === "/Login" ? (
             <HeaderLoginButtonHover
               onClick={() => {
-                navigate("/testLogin");
-                setHoverHomeButtonState(true);
+                navigate("/Login");
+                setLoginButtonState(true);
               }}
               onMouseEnter={() => {
                 setLoginButtonState(true);

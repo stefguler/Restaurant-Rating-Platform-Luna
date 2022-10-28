@@ -1,14 +1,15 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt import views
-from review.views import CreateReviewView, ReviewsForRestaurantView, ReviewsByUserView, ReviewView, LikeView, LikedReviewsView, CommentedReviewsView
+from review.views import BestRatedRestaurantsView, SearchView, CreateReviewView, ReviewsForRestaurantView, ReviewsByUserView, ReviewView, LikeView, LikedReviewsView
 
 urlpatterns = [
-    path('new/<int:restaurant_id>/', CreateReviewView.as_view()),
-    path('restaurant/<int:restaurant_id>/', ReviewsForRestaurantView.as_view()),
-    path('user/<int:user_id>/', ReviewsByUserView.as_view()),
-    path('<int:review_id>/', ReviewView.as_view()),
-    path('like/<int:review_id>/', LikeView.as_view()),
-    path('likes/', LikedReviewsView.as_view()),
-    path('comments/', CommentedReviewsView.as_view())
+    path('home/', BestRatedRestaurantsView.as_view()),
+    path('search/', SearchView.as_view()),
+    path('reviews/new/<int:restaurant_id>/', CreateReviewView.as_view()),
+    path('reviews/restaurant/<int:restaurant_id>/', ReviewsForRestaurantView.as_view()),
+    path('reviews/user/<int:user_id>/', ReviewsByUserView.as_view()),
+    path('reviews/<int:review_id>/', ReviewView.as_view()),
+    path('reviews/like/<int:review_id>/', LikeView.as_view()),
+    path('reviews/likes/', LikedReviewsView.as_view())
 ]
