@@ -19,7 +19,7 @@ export default function Homepage() {
 
     if (token === undefined) navigate('/')
 
-    const url = "http://localhost:8001/backend/api/restaurants/"
+    const url = "https://team1.propulsion-learn.ch/backend/api/restaurants/"
     const config = {
       method: "GET",
       headers: new Headers({
@@ -43,7 +43,7 @@ export default function Homepage() {
   }
 
   const handleSearchRequest = () => {
-    const url = `http://localhost:8001/backend/api/search/}`
+    const url = `https://team1.propulsion-learn.ch/backend/api/search/}`
     const searchData = {
       type: "restaurants",
       text_content: searchInput,

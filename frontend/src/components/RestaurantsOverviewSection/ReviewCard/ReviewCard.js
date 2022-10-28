@@ -19,7 +19,7 @@ export default function ReviewCard(props) {
 
         if (token === undefined) navigate('/')
     
-        const url = `http://localhost:8001/backend/api/users/${reviewCard.user}/`
+        const url = `https://team1.propulsion-learn.ch/backend/api/users/${reviewCard?.user}/`
         const config = {
           method: "GET",
           headers: new Headers({
@@ -72,7 +72,10 @@ export default function ReviewCard(props) {
                         <IconContext.Provider value={{ color: "white", size: "1.5rem" }}>
                             <GoThumbsup />
                         </IconContext.Provider>
-                        Like {reviewCard.liked_by_user?.lengt}
+                        Like {
+                            reviewCard?.liked_by_user !== undefined ?
+                            reviewCard?.liked_by_user?.length : 0 
+                        }
                     </LikesSection>
                     <CommentsSection>
                         Comment {randomReviewCount}

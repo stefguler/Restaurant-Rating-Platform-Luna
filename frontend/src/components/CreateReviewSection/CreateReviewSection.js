@@ -27,7 +27,7 @@ export default function CreateReview() {
     e.preventDefault()
 
   
-      const url = `http://localhost:8001/backend/api/reviews/new/${restaurant.id}`
+      const url = `https://team1.propulsion-learn.ch/backend/api/reviews/new/${restaurant.id}`
       const reviewData = {
         rating: rating,
         text_content: ratingDescription,

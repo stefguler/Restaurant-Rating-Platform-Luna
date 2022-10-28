@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const UserSubSectionsContainer = styled.div`
     
     display: block;
@@ -25,3 +26,15 @@ h2 {
 }
 
 `;
+
+export const CreateButton = styled.button`
+    display: flex;
+    border-radius: 1rem;
+    border: none;
+    background: #e47d31;
+    color: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    align-self: center;
+`
