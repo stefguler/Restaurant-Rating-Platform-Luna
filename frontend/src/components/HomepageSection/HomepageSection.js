@@ -43,7 +43,7 @@ export default function Homepage() {
            //     data => setNotificationCount(data.count))
            .then(
                data => setUsers(data.results))
-
+   // Gjorgi: i removed --->>>>      , [token]) i rly wanna sleep bro it's 2:22 AM  :'(
    }
 
   const restaurantObject1 = {
