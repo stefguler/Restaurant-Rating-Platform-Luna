@@ -3,8 +3,6 @@ import ReviewCard from '../ReviewCard/ReviewCard.js'
 
 export default function ReviewCardGrid(props) {
 
-  console.log(props)
-
   return (
     <>
       <RestaurantCardsGrid>

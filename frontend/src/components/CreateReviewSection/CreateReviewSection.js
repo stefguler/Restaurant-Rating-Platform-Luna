@@ -28,15 +28,15 @@ export default function CreateReview() {
 
   
       const url = `http://localhost:8001/backend/api/reviews/new/${restaurant.id}`
-      const reviewBody = {
+      const reviewData = {
         rating: rating,
         text_content: ratingDescription,
       }
-      console.log(reviewBody)
-      const foo = JSON.stringify(reviewBody)
+      console.log(reviewData)
+      const reviewBody = JSON.stringify(reviewData)
       console.log(reviewBody)
       const config = {
-        method: "PATCH",
+        method: "POST",
         headers: new Headers({
           "Content-Type": "application/json",
           "Authorization": `Bearer ${token}`

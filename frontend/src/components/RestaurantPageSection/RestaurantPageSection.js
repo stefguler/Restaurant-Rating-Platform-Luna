@@ -20,9 +20,10 @@ export default function RestaurantPageSection() {
   //const [restaurant, setRestaurants] = useState()
   //const token = useSelector(state => state.auth.accessToken)
   //const user = useSelector(state => state.auth.currentUser)
-  const [reviews, setReview] = useState()
+  const [reviews, setReviews] = useState()
   const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY3MzA3OTc0LCJpYXQiOjE2NjY4NzU5NzQsImp0aSI6IjY3NjY4MmNjYTc0NTQzMDliNDg4ZjQ4ZGE1N2YyYjRiIiwidXNlcl9pZCI6MX0.knkJJppK0jmWSjd5DEFxDHGyhMZHBQksb_qTfhBHbC4"
   const navigate = useNavigate()
+  const [filterInput, setFilterInput] = useState()
 
   useEffect(() => {
 
@@ -42,7 +43,7 @@ export default function RestaurantPageSection() {
     fetch(url, config).then(
       response => response.json())
       .then(
-        data => setReview(data))
+        data => setReviews(data))
 
   }, [token]);
 
@@ -58,7 +59,43 @@ export default function RestaurantPageSection() {
   const handleNavigateToCreateReview = () => {
     navigate("/createreview")
   }
-  
+
+  const handleChangeFilterInput = (e) => {
+    setFilterInput(e.target.value)
+  }
+
+
+  const handleFilterRequest = () => {
+    const url = `http://localhost:8001/backend/api/search/}`
+    const searchData = {
+      type: "reviews",
+      text_content: filterInput,
+    }
+    console.log(searchData)
+    const searchBody = JSON.stringify(searchData)
+    console.log(searchBody)
+    const config = {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }),
+      body: searchBody
+    }
+    fetch(url, config)
+      .then(result => {
+        if (!result.ok) {
+          console.log(result.text())
+        } else {
+          result.json().then(data => {
+            console.log(data)
+            setReviews(data)
+          })
+        }
+      }
+      )
+  }
+
   return (
     <>
       <Header></Header>
@@ -108,13 +145,13 @@ export default function RestaurantPageSection() {
           <LeftPartContainer>
             <ReviewSection>
               <FilterSection>
-                <input input='text' placeholder="Filter list..."></input>
-                <button>Filter</button>
+                <input input='text' placeholder="Filter list..." onChange={(e) => handleChangeFilterInput(e)}></input>
+                <button onClick={handleFilterRequest}>Filter</button>
               </FilterSection>
               <ReviewList>
                 {
                   reviews !== undefined ?
-                  reviews.map((review, idx) => {
+                    reviews.map((review, idx) => {
                       return <ReviewCard key={idx} review={review} />
                     }) : null
                 }

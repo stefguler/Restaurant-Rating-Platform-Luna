@@ -55,9 +55,6 @@ export default function ReviewCard(props) {
         },
       ]
 
-      console.log(`http://localhost:8001/backend/api/users/${reviewCard.user}/`)
-      console.log('review_user: ', user)
-
     return (
         <>
             <ReviewCardContainer>
